@@ -1,4 +1,4 @@
-# [ Poultry Center ]
+# Poultry Center
 
 ## Database Schema Design
 
