@@ -4,7 +4,7 @@
 
 ![db-schema]
 
-[db-schema]: ./images/EverythingPoultrySchema.png
+[db-schema]: ./images/PoultryCenterSchema.png
 
 ## API Documentation
 
