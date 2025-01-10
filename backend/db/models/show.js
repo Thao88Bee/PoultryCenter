@@ -11,11 +11,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Show.belongsTo(models.User, {
         as: "Owner",
-        foreignKey: "id",
+        foreignKey: "OwnerId",
         onDelete: "CASCADE",
       });
       Show.belongsTo(models.ShowWatchList, {
         foreignKey: "id",
+        otherKey: "showId",
         onDelete: "CASCADE",
       });
     }

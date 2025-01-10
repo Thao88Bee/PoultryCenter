@@ -10,12 +10,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       SwapMeetWatchList.belongsTo(models.User, {
-        as: "owner",
+        as: "Owner",
         foreignKey: "ownerId",
         onDelete: "CASCADE",
       });
       SwapMeetWatchList.hasMany(models.SwapMeet, {
         foreignKey: "id",
+        sourceKey: "swapMeetId",
         onDelete: "CASCADE",
       });
     }

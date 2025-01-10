@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       SwapMeet.belongsTo(models.SwapMeetWatchList, {
         foreignKey: "id",
+        otherKey: "swapMeetId",
         onDelete: "CASCADE",
       });
     }
