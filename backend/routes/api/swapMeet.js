@@ -3,6 +3,7 @@ const { SwapMeet } = require("../../db/models");
 
 const router = express.Router();
 
+// Get all Swap Meets
 router.get("/", async (req, res, next) => {
   const swapMeets = await SwapMeet.findAll();
 

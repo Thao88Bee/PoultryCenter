@@ -3,6 +3,7 @@ const { Show } = require("../../db/models");
 
 const router = express.Router();
 
+// Get all Shows
 router.get("/", async (req, res, next) => {
   const shows = await Show.findAll();
 

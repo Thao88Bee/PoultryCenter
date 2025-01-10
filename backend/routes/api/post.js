@@ -3,6 +3,7 @@ const { Post } = require("../../db/models");
 
 const router = express.Router();
 
+// Get all Posts
 router.get("/", async (req, res, next) => {
   const posts = await Post.findAll();
 

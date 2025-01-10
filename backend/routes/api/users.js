@@ -1,64 +1,44 @@
 const express = require("express");
-const bcrypt = require("bcryptjs");
 
-const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { User } = require("../../db/models");
-
-const { check } = require("express-validator");
-const { handleValidationErrors } = require("../../utils/validation");
+const { requireAuth } = require("../../utils/auth");
+const { Show, SwapMeet } = require("../../db/models");
 
 const router = express.Router();
 
-const validateSignup = [
-  check("username")
-    .exists({ checkFalsy: true })
-    .isLength({ min: 4 })
-    .withMessage("Please provide a username with at least 4 characters."),
-  check("username").not().isEmail().withMessage("Username cannot be an email."),
-  check("firstName")
-    .exists({ checkFalsy: true })
-    .isLength({ min: 3 })
-    .withMessage("Please provide a firstName with at least 4 characters."),
-  check("lastName")
-    .exists({ checkFalsy: true })
-    .isLength({ min: 3 })
-    .withMessage("Please provide a lastName with at least 4 characters."),
-  check("email")
-    .exists({ checkFalsy: true })
-    .isEmail()
-    .withMessage("Please provide a valid email."),
-  check("password")
-    .exists({ checkFalsy: true })
-    .isLength({ min: 6 })
-    .withMessage("Password must be 6 characters or more."),
-  handleValidationErrors,
-];
-
-// Sign up
-router.post("/", validateSignup, async (req, res) => {
-  const { username, firstName, lastName, email, password } = req.body;
-  const hashedPassword = bcrypt.hashSync(password);
-  const user = await User.create({
-    username,
-    firstName,
-    lastName,
-    email,
-    hashedPassword,
+// Get all Swap Meets owned by the Current User
+router.get("/:userId/swapMeets", requireAuth, async (req, res, next) => {
+  const id = req.params.userId;
+  const userSwapMeets = await SwapMeet.findAll({
+    where: {
+      ownerId: id,
+    },
   });
 
-  const safeUser = {
-    id: user.id,
-    username: user.username,
-    firstName: user.firstName,
-    lastName: user.lastName,
-    email: user.email,
-  };
+  if (userSwapMeets.length) {
+    res.json({ Swaps: userSwapMeets });
+  } else {
+    res.status(404).json({
+      message: "User do not have any Swap Meets",
+    });
+  }
+});
 
-  await setTokenCookie(res, safeUser);
-
-  return res.json({
-    user: safeUser,
+// Get all Shows owned by the Current User
+router.get("/:userId/shows", requireAuth, async (req, res, next) => {
+  const id = req.params.userId;
+  const userShows = await Show.findAll({
+    where: {
+      ownerId: id,
+    },
   });
+
+  if (userShows.length) {
+    res.json({ Shows: userShows });
+  } else {
+    res.status(404).json({
+      message: "User do not have any Shows.",
+    });
+  }
 });
 
 module.exports = router;
