@@ -6,8 +6,6 @@ const router = express.Router();
 // Get details of a Show from an id
 router.get("/:showId", async (req, res, next) => {
   const id = req.params.showId;
-  const userId = User;
-  console.log(userId);
   const show = await Show.findByPk(id, {
     include: [
       {

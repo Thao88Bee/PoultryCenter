@@ -1,7 +1,29 @@
 const express = require("express");
-const { Post } = require("../../db/models");
+const { Post, User } = require("../../db/models");
 
 const router = express.Router();
+
+// Get details of a Post from an id
+router.get("/:postId", async (req, res, next) => {
+  const id = req.params.postId;
+  const post = await Post.findByPk(id, {
+    include: [
+      {
+        model: User,
+        as: "Owner",
+        attributes: ["id", "firstName", "lastName"],
+      },
+    ],
+  });
+
+  if (post) {
+    res.json(post);
+  } else {
+    res.status(404).json({
+      message: "Post couldn't be found.",
+    });
+  }
+});
 
 // Get all Posts
 router.get("/", async (req, res, next) => {

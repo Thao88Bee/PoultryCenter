@@ -6,19 +6,19 @@ module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
       // define association here
-      User.hasMany(models.ShowWatchList, {
-        foreignKey: "ownerId",
-        onDelete: "CASCADE",
-      });
       User.hasMany(models.Show, {
         foreignKey: "ownerId",
         onDelete: "CASCADE",
       });
-      User.hasMany(models.SwapMeetWatchList, {
+      User.hasMany(models.ShowWatchList, {
         foreignKey: "ownerId",
         onDelete: "CASCADE",
       });
       User.hasMany(models.SwapMeet, {
+        foreignKey: "ownerId",
+        onDelete: "CASCADE",
+      });
+      User.hasMany(models.SwapMeetWatchList, {
         foreignKey: "ownerId",
         onDelete: "CASCADE",
       });
