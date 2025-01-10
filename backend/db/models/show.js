@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
       });
       Show.belongsTo(models.ShowWatchList, {
-        foreignKey: "showId",
+        foreignKey: "id",
         onDelete: "CASCADE",
       });
     }
