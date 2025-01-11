@@ -1,5 +1,6 @@
 const express = require("express");
 const { SwapMeet, User } = require("../../db/models");
+const { requireAuth } = require("../../utils/auth");
 
 const router = express.Router();
 
@@ -33,9 +34,33 @@ router.get("/", async (req, res, next) => {
     res.json({ Swaps: swapMeets });
   } else {
     res.status(404).json({
-      message: "There are no Swap Meets at this moment.",
+      message: "There are no Swap Meets at this moment",
     });
   }
+});
+
+// Delete a Swap Meet
+router.delete("/:swapMeetId", requireAuth, async (req, res, next) => {
+  const userId = parseInt(req.user.id);
+  const id = req.params.swapMeetId;
+  const swapMeet = await SwapMeet.findByPk(id);
+
+  if (!swapMeet) {
+    res.status(404).json({
+      message: "Swap Meet couldn't be found",
+    });
+  }
+
+  if (swapMeet.ownerId !== userId) {
+    res.status(403).json({
+      message: "Forbidden",
+    });
+  }
+
+  await swapMeet.destroy();
+  res.json({
+    message: "Successfully deleted",
+  });
 });
 
 module.exports = router;

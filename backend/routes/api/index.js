@@ -26,7 +26,7 @@ router.use("/shows", showRouter);
 // router.use("/showWatchLists", showWatchListRouter);
 router.use("/swapMeets", swapMeetRouter);
 // router.use("/swapMeetWatchLists", swapMeetWatchListRouter);
-// router.use("/reviews", reviewRouter);
+router.use("/reviews", reviewRouter);
 router.use("/posts", postRouter);
 
 router.post("/test", (req, res) => {

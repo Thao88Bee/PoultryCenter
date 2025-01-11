@@ -1,7 +1,7 @@
 const express = require("express");
 
 const { requireAuth } = require("../../utils/auth");
-const { Show, SwapMeet, Post, Review } = require("../../db/models");
+const { Show, SwapMeet, Post, Review, sequelize } = require("../../db/models");
 
 const router = express.Router();
 
@@ -11,35 +11,60 @@ router.get("/:userId/reviews", requireAuth, async (req, res, next) => {
   const userReviews = await Review.findAll({
     where: {
       ownerId: id,
-    }
-  })
+    },
+    include: [
+      {
+        model: Post,
+        attributes: ["id", "ownerId", "name", "description"],
+      },
+    ],
+  });
 
   if (userReviews.length) {
-    res.json({ Reviews: userReviews })
+    res.json({ Reviews: userReviews });
   } else {
     res.status(404).json({
-      message: "User do not have any Reviews."
-    })
+      message: "User do not have any Reviews.",
+    });
   }
-})
+});
 
 // Get all Posts owned by the Current User
-router.get("/:userId/posts", requireAuth, async (req,res,next) => {
+router.get("/:userId/posts", requireAuth, async (req, res, next) => {
   const id = req.params.userId;
   const userPosts = await Post.findAll({
     where: {
       ownerId: id,
-    }
-  })
+    },
+    include: [
+      {
+        model: Review,
+        attributes: [],
+      },
+    ],
+    attributes: {
+      include: [
+        [
+          sequelize.fn(
+            "ROUND",
+            sequelize.fn("AVG", sequelize.col("Reviews.starRating")),
+            1
+          ),
+          "avgRating",
+        ],
+      ],
+    },
+    group: ["Post.id"],
+  });
 
   if (userPosts.length) {
-    res.json({ Posts: userPosts })
+    res.json({ Posts: userPosts });
   } else {
     res.status(404).json({
-      message: "User do not have any Posts."
-    })
+      message: "User do not have any Posts.",
+    });
   }
-})
+});
 
 // Get all Swap Meets owned by the Current User
 router.get("/:userId/swapMeets", requireAuth, async (req, res, next) => {

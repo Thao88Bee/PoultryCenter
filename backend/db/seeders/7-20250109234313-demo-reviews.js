@@ -10,8 +10,8 @@ if (process.env.NODE_ENV === "production") {
 const reviews = [
   {
     ownerId: 1,
-    postId: 10,
-    review: "Creative greenhouse concept for hatching chicks",
+    postId: 7,
+    review: "This is every helpful, Thank You.",
     starRating: 5,
   },
   {
@@ -27,22 +27,40 @@ const reviews = [
     starRating: 3,
   },
   {
+    ownerId: 2,
+    postId: 2,
+    review: "What!!",
+    starRating: 1,
+  },
+  {
     ownerId:2,
     postId: 9,
     review: "I dislike irresponsible dog owners!",
     starRating: 4,
   },
   {
+    ownerId: 2,
+    postId: 10,
+    review: "Cool, But glass are crazy.",
+    starRating: 2,
+  },
+  {
     ownerId: 3,
     postId: 2,
     review: "Where did you get the heated bowl?",
-    starRating: 5,
+    starRating: 2,
   },
   {
     ownerId: 3,
     postId: 4,
     review: "We use lath/ or any scrap wood and screw down plastic were we can. That way the wind doesn’t catch the plastic and cause it to billow.",
     starRating: 3,
+  },
+  {
+    ownerId: 3,
+    postId: 10,
+    review: "Creative greenhouse concept for hatching chicks",
+    starRating: 5,
   },
 ]
 

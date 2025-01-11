@@ -17,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
       SwapMeetWatchList.hasMany(models.SwapMeet, {
         foreignKey: "id",
         sourceKey: "swapMeetId",
-        onDelete: "CASCADE",
       });
     }
   }

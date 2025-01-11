@@ -27,7 +27,6 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: true,
           references: { model: "SwapMeets", key: "id" },
-          onDelete: "CASCADE",
         },
         name: {
           type: Sequelize.STRING,
