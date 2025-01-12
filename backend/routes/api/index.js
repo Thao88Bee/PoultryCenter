@@ -23,9 +23,9 @@ router.use("/users", usersRouter);
 router.use("/login", loginRouter);
 router.use("/signup", signupRouter);
 router.use("/shows", showRouter);
-// router.use("/showWatchLists", showWatchListRouter);
+router.use("/showWatchLists", showWatchListRouter);
 router.use("/swapMeets", swapMeetRouter);
-// router.use("/swapMeetWatchLists", swapMeetWatchListRouter);
+router.use("/swapMeetWatchLists", swapMeetWatchListRouter);
 router.use("/reviews", reviewRouter);
 router.use("/posts", postRouter);
 

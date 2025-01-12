@@ -1416,7 +1416,12 @@ Returns all the posts.
           "description": "Do hens need a rooster to lay eggs?",
           "avgRating": 4.5,
           "createdAt": "2021-11-19 20:39:36",
-          "updatedAt": "2021-11-19 20:39:36"
+          "updatedAt": "2021-11-19 20:39:36",
+          "Owner": {
+              "id": 1,
+              "firstName": "Demo",
+              "lastName": "Lition"
+          }
         }
       ]
     }
@@ -1482,15 +1487,26 @@ Returns the details of a post specified by its id.
       "name": "Chicken for Eggs",
       "images": "image url",
       "description": "Do hens Need a Rooster to Lay Eggs?",
+      "avgRating": 2.7,
       "createdAt": "2021-11-19 20:39:36",
       "updatedAt": "2021-11-19 20:39:36",
-      "numReviews": 5,
-      "avgStarRating": 4.5,
+      "numReviews": 1
       "Owner": {
         "id": 1,
         "firstName": "John",
         "lastName": "Smith"
-      }
+      },
+      "Reviews": [
+        {
+            "id": 3,
+            "ownerId": 2,
+            "postId": 1,
+            "review": "Eat him. There's no point in keeping a rooster that kills hens.",
+            "starRating": 3,
+            "createdAt": "2025-01-10T22:51:56.443Z",
+            "updatedAt": "2025-01-10T22:51:56.443Z"
+        }
+      ]
     }
     ```
 
@@ -1700,17 +1716,11 @@ Returns all the reviews written by the current user.
           "stars": 5,
           "createdAt": "2024-11-19 20:39:36",
           "updatedAt": "2024-11-19 20:39:36",
-          "Owner": {
-            "id": 1,
-            "firstName": "John",
-            "lastName": "Smith"
-          },
           "Post": {
             "id": 1,
             "ownerId": 1,
             "name": "Chicken for Eggs",
             "description": "Do hens Need a Rooster to Lay Eggs?",
-            "image": "image url"
           }
         }
       ]
@@ -1958,4 +1968,3 @@ Delete an existing review.
       "message": "Review couldn't be found"
     }
     ```
-    
