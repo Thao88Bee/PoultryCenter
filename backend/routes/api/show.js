@@ -6,8 +6,8 @@ const router = express.Router();
 
 // Get details of a Show from an id
 router.get("/:showId", async (req, res, next) => {
-  const id = req.params.showId;
-  const show = await Show.findByPk(id, {
+  const showId = parseInt(req.params.showId);
+  const show = await Show.findByPk(showId, {
     include: [
       {
         model: User,
@@ -42,8 +42,8 @@ router.get("/", async (req, res, next) => {
 // Delete a Show
 router.delete("/:showId", requireAuth, async (req, res, next) => {
   const userId = parseInt(req.user.id);
-  const id = req.params.showId;
-  const show = await Show.findByPk(id);
+  const showId = parseInt(req.params.showId);
+  const show = await Show.findByPk(showId);
 
   if (!show) {
     res.status(404).json({

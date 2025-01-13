@@ -6,8 +6,8 @@ const router = express.Router();
 
 // Get details of a Swap Meet from an id
 router.get("/:swapMeetId", async (req, res, next) => {
-  const id = req.params.swapMeetId;
-  const swapMeet = await SwapMeet.findByPk(id, {
+  const swapMeetId = parseInt(req.params.swapMeetId);
+  const swapMeet = await SwapMeet.findByPk(swapMeetId, {
     include: [
       {
         model: User,
@@ -42,8 +42,8 @@ router.get("/", async (req, res, next) => {
 // Delete a Swap Meet
 router.delete("/:swapMeetId", requireAuth, async (req, res, next) => {
   const userId = parseInt(req.user.id);
-  const id = req.params.swapMeetId;
-  const swapMeet = await SwapMeet.findByPk(id);
+  const swapMeetId = parseInt(req.params.swapMeetId);
+  const swapMeet = await SwapMeet.findByPk(swapMeetId);
 
   if (!swapMeet) {
     res.status(404).json({

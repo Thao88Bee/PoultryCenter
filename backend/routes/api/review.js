@@ -7,11 +7,8 @@ const router = express.Router();
 // Delete a Review
 router.delete("/:reviewId", requireAuth, async (req, res, next) => {
   const userId = parseInt(req.user.id);
-  const id = req.params.reviewId;
-  const review = await Review.findByPk(id);
-
-console.log(userId);
-console.log(review);
+  const reviewId = parseInt(req.params.reviewId);
+  const review = await Review.findByPk(reviewId);
 
   if (!review) {
     res.status(404).json({

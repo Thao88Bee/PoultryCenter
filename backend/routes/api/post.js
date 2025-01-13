@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Get all Reviews by a Post's id
 router.get("/:postId/reviews", async (req, res, next) => {
-  const id = req.params.postId;
+  const id = parseInt(req.params.postId);
   const post = await Post.findByPk(id);
   if (post) {
     const postReviews = await Review.findAll({
@@ -38,7 +38,7 @@ router.get("/:postId/reviews", async (req, res, next) => {
 
 // Get details of a Post from an id
 router.get("/:postId", async (req, res, next) => {
-  const id = req.params.postId;
+  const id = parseInt(req.params.postId);
   const post = await Post.findByPk(id, {
     include: [
       {
@@ -124,8 +124,8 @@ router.get("/", async (req, res, next) => {
 // Delete a Spot
 router.delete("/:postId", requireAuth, async (req, res, next) => {
   const userId = parseInt(req.user.id);
-  const id = req.params.postId;
-  const post = await Post.findByPk(id);
+  const postId = parseInt(req.params.postId);
+  const post = await Post.findByPk(postId);
 
   if (!post) {
     res.status(404).json({

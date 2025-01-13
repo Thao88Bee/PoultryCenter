@@ -287,7 +287,7 @@ Returns all the shows owned (created) by the current user.
 - Request
 
   - Method: GET
-  - Route path: /users/:userId/shows
+  - Route path: /user/shows
   - Body: none
 
 - Successful Response
@@ -608,7 +608,7 @@ Returns all the swap meets owned (created) by the current user.
 - Request
 
   - Method: GET
-  - Route path: /users/:userId/swapMeets
+  - Route path: /user/swapMeets
   - Body: none
 
 - Successful Response
@@ -931,7 +931,7 @@ Returns all the posts owned (created) by the current user.
 - Request
 
   - Method: GET
-  - Route path: /users/:userId/posts
+  - Route path: /user/posts
   - Body: none
 
 - Successful Response
@@ -1191,7 +1191,7 @@ Returns all the reviews written by the current user.
 - Request
 
   - Method: GET
-  - Route path: /users/:userId/reviews
+  - Route path: /user/reviews
   - Body: none
 
 - Successful Response
