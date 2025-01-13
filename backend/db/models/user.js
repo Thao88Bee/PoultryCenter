@@ -10,15 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "ownerId",
         onDelete: "CASCADE",
       });
-      User.hasMany(models.ShowWatchList, {
-        foreignKey: "ownerId",
-        onDelete: "CASCADE",
-      });
       User.hasMany(models.SwapMeet, {
-        foreignKey: "ownerId",
-        onDelete: "CASCADE",
-      });
-      User.hasMany(models.SwapMeetWatchList, {
         foreignKey: "ownerId",
         onDelete: "CASCADE",
       });
