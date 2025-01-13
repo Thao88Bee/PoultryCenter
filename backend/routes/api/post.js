@@ -1,8 +1,19 @@
 const express = require("express");
 const { Post, User, Review, sequelize } = require("../../db/models");
 const { requireAuth } = require("../../utils/auth");
+const { check } = require("express-validator");
+const { handleValidationErrors } = require("../../utils/validation");
 
 const router = express.Router();
+
+const validateReview = [
+  check("review").notEmpty().withMessage("Review text is required"),
+  check("starRating")
+    .notEmpty()
+    .isFloat({ min: 1, max: 5 })
+    .withMessage("Stars must be an integer from 1 to 5"),
+  handleValidationErrors,
+];
 
 // Get all Reviews by a Post's id
 router.get("/:postId/reviews", async (req, res, next) => {
@@ -120,6 +131,33 @@ router.get("/", async (req, res, next) => {
     });
   }
 });
+
+// Create a Review for a Post based on the Post's id
+router.post(
+  "/:postId/reviews",
+  requireAuth,
+  validateReview,
+  async (req, res, next) => {
+    const userId = parseInt(req.user.id);
+    const postId = parseInt(req.params.postId);
+    const post = await Post.findByPk(postId);
+
+    if (!post) {
+      res.status(404).json({
+        message: "Post couldn't be found",
+      });
+    } else {
+      const { review, starRating } = req.body;
+      const newReview = await Review.create({
+        ownerId: userId,
+        postId,
+        review,
+        starRating,
+      });
+      res.json(newReview);
+    }
+  }
+);
 
 // Delete a Spot
 router.delete("/:postId", requireAuth, async (req, res, next) => {
