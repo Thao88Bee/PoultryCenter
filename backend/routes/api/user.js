@@ -6,11 +6,11 @@ const { Show, SwapMeet, Post, Review, sequelize } = require("../../db/models");
 const router = express.Router();
 
 // Get all Reviews of the Current User
-router.get("/:userId/reviews", requireAuth, async (req, res, next) => {
-  const id = req.params.userId;
+router.get("/reviews", requireAuth, async (req, res, next) => {
+  const userId = parseInt(req.user.id);
   const userReviews = await Review.findAll({
     where: {
-      ownerId: id,
+      ownerId: userId,
     },
     include: [
       {
@@ -30,11 +30,11 @@ router.get("/:userId/reviews", requireAuth, async (req, res, next) => {
 });
 
 // Get all Posts owned by the Current User
-router.get("/:userId/posts", requireAuth, async (req, res, next) => {
-  const id = req.params.userId;
+router.get("/posts", requireAuth, async (req, res, next) => {
+  const userId = parseInt(req.user.id);
   const userPosts = await Post.findAll({
     where: {
-      ownerId: id,
+      ownerId: userId,
     },
     include: [
       {
@@ -67,11 +67,11 @@ router.get("/:userId/posts", requireAuth, async (req, res, next) => {
 });
 
 // Get all Swap Meets owned by the Current User
-router.get("/:userId/swapMeets", requireAuth, async (req, res, next) => {
-  const id = req.params.userId;
+router.get("/swapMeets", requireAuth, async (req, res, next) => {
+  const userId = parseInt(req.user.id);
   const userSwapMeets = await SwapMeet.findAll({
     where: {
-      ownerId: id,
+      ownerId: userId,
     },
   });
 
@@ -85,11 +85,11 @@ router.get("/:userId/swapMeets", requireAuth, async (req, res, next) => {
 });
 
 // Get all Shows owned by the Current User
-router.get("/:userId/shows", requireAuth, async (req, res, next) => {
-  const id = req.params.userId;
+router.get("/shows", requireAuth, async (req, res, next) => {
+  const userId = parseInt(req.user.id);
   const userShows = await Show.findAll({
     where: {
-      ownerId: id,
+      ownerId: userId,
     },
   });
 
