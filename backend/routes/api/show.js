@@ -18,9 +18,9 @@ router.get("/:showId", async (req, res, next) => {
   });
 
   if (show) {
-    res.json(show);
+    return res.json(show);
   } else {
-    res.status(404).json({
+    return res.status(404).json({
       message: "Show couldn't be found",
     });
   }
@@ -28,12 +28,20 @@ router.get("/:showId", async (req, res, next) => {
 
 // Get all Shows
 router.get("/", async (req, res, next) => {
-  const shows = await Show.findAll();
+  const shows = await Show.findAll({
+    include: [
+      {
+        model: User,
+        as: "Owner",
+        attributes: ["id", "firstName", "lastName", "email"]
+      }
+    ]
+  });
 
   if (shows.length) {
-    res.json({ Shows: shows });
+    return res.json({ Shows: shows });
   } else {
-    res.status(404).json({
+    return res.status(404).json({
       message: "There are no Shows at this moment",
     });
   }
@@ -46,19 +54,19 @@ router.delete("/:showId", requireAuth, async (req, res, next) => {
   const show = await Show.findByPk(showId);
 
   if (!show) {
-    res.status(404).json({
+    return res.status(404).json({
       message: "Show couldn't be found",
     });
   }
 
   if (show.ownerId !== userId) {
-    res.status(403).json({
+    return res.status(403).json({
       message: "Forbidden",
     });
   }
 
   await show.destroy();
-  res.json({
+  return res.json({
     message: "Successfully deleted",
   });
 });

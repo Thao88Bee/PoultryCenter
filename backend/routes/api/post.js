@@ -34,14 +34,14 @@ router.get("/:postId/reviews", async (req, res, next) => {
     });
 
     if (postReviews.length) {
-      res.json({ Reviews: postReviews });
+      return res.json({ Reviews: postReviews });
     } else {
-      res.status(404).json({
+      return res.status(404).json({
         message: "Post has no review",
       });
     }
   } else {
-    res.status(404).json({
+    return res.status(404).json({
       message: "Post couldn't be found",
     });
   }
@@ -86,9 +86,9 @@ router.get("/:postId", async (req, res, next) => {
     newPost.numReviews = numReviews;
     newPost.avgRating = avgStarRating;
 
-    res.json(newPost);
+    return res.json(newPost);
   } else {
-    res.status(404).json({
+    return res.status(404).json({
       message: "Post couldn't be found",
     });
   }
@@ -124,9 +124,9 @@ router.get("/", async (req, res, next) => {
   });
 
   if (posts.length) {
-    res.json({ Posts: posts });
+    return res.json({ Posts: posts });
   } else {
-    res.status(404).json({
+    return res.status(404).json({
       message: "There are no Posts at this moment",
     });
   }
@@ -143,7 +143,7 @@ router.post(
     const post = await Post.findByPk(postId);
 
     if (!post) {
-      res.status(404).json({
+      return res.status(404).json({
         message: "Post couldn't be found",
       });
     } else {
@@ -154,7 +154,7 @@ router.post(
         review,
         starRating,
       });
-      res.json(newReview);
+      return res.json(newReview);
     }
   }
 );
@@ -166,19 +166,19 @@ router.delete("/:postId", requireAuth, async (req, res, next) => {
   const post = await Post.findByPk(postId);
 
   if (!post) {
-    res.status(404).json({
+    return res.status(404).json({
       message: "Post couldn't be found",
     });
   }
 
   if (post.ownerId !== userId) {
-    res.status(403).json({
+    return res.status(403).json({
       message: "Forbidden",
     });
   }
 
   await post.destroy();
-  res.json({
+  return res.json({
     message: "Successfully deleted",
   });
 });

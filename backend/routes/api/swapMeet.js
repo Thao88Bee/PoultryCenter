@@ -18,9 +18,9 @@ router.get("/:swapMeetId", async (req, res, next) => {
   });
 
   if (swapMeet) {
-    res.json(swapMeet);
+    return res.json(swapMeet);
   } else {
-    res.status(404).json({
+    return res.status(404).json({
       message: "Swap Meet couldn't be found",
     });
   }
@@ -28,12 +28,20 @@ router.get("/:swapMeetId", async (req, res, next) => {
 
 // Get all Swap Meets
 router.get("/", async (req, res, next) => {
-  const swapMeets = await SwapMeet.findAll();
+  const swapMeets = await SwapMeet.findAll({
+    include: [
+      {
+        model: User,
+        as: "Owner",
+        attributes: ["id", "firstName", "lastName", "email"]
+      }
+    ]
+  });
 
   if (swapMeets.length) {
-    res.json({ Swaps: swapMeets });
+    return res.json({ Swaps: swapMeets });
   } else {
-    res.status(404).json({
+    return res.status(404).json({
       message: "There are no Swap Meets at this moment",
     });
   }
@@ -46,19 +54,19 @@ router.delete("/:swapMeetId", requireAuth, async (req, res, next) => {
   const swapMeet = await SwapMeet.findByPk(swapMeetId);
 
   if (!swapMeet) {
-    res.status(404).json({
+    return res.status(404).json({
       message: "Swap Meet couldn't be found",
     });
   }
 
   if (swapMeet.ownerId !== userId) {
-    res.status(403).json({
+    return res.status(403).json({
       message: "Forbidden",
     });
   }
 
   await swapMeet.destroy();
-  res.json({
+  return res.json({
     message: "Successfully deleted",
   });
 });

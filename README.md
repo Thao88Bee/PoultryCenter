@@ -273,7 +273,13 @@ Returns all the shows.
           "state": "Wisconsin",
           "image": "image url",
           "createdAt": "2024-11-19 20:39:36",
-          "updatedAt": "2024-11-19 20:39:36"
+          "updatedAt": "2024-11-19 20:39:36",
+          "Owner": {
+            "id": 1,
+            "firstName": "Demo",
+            "lastName": "Testing",
+            "email": "demo@user.io"
+          }
         }
       ]
     }
@@ -594,7 +600,13 @@ Returns all the swap meets.
           "state": "Wisconsin",
           "image": "image url",
           "createdAt": "2024-11-19 20:39:36",
-          "updatedAt": "2024-11-19 20:39:36"
+          "updatedAt": "2024-11-19 20:39:36",
+          "Owner": {
+            "id": 1,
+            "firstName": "Demo",
+            "lastName": "Testing",
+            "email": "demo@user.io"
+          }
         }
       ]
     }
