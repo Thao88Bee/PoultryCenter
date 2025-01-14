@@ -43,7 +43,7 @@ router.patch(
       review,
       starRating,
     });
-    res.json(editReview)
+    res.json(editReview);
   }
 );
 

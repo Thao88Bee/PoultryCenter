@@ -182,6 +182,32 @@ router.post("/", requireAuth, validatePost, async (req, res, next) => {
   return res.status(201).json(newPost);
 });
 
+// Edit a Post
+router.patch("/:postId", requireAuth, validatePost, async (req, res, next) => {
+  const userId = parseInt(req.user.id);
+  const postId = parseInt(req.params.postId);
+  const editPost = await Post.findByPk(postId);
+  const { name, description } = req.body;
+
+  if (!editPost) {
+    return res.status(404).json({
+      message: "Post couldn't be found",
+    });
+  }
+
+  if (editPost.ownerId !== userId) {
+    return res.status(403).json({
+      message: "Forbidden",
+    });
+  }
+
+  await editPost.update({
+    name,
+    description,
+  });
+  return res.json(editPost);
+});
+
 // Delete a Spot
 router.delete("/:postId", requireAuth, async (req, res, next) => {
   const userId = parseInt(req.user.id);
