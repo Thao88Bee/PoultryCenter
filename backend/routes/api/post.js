@@ -6,6 +6,15 @@ const { handleValidationErrors } = require("../../utils/validation");
 
 const router = express.Router();
 
+const validatePost = [
+  check("name")
+    .notEmpty()
+    .isLength({ max: 100 })
+    .withMessage("Name must be less than 100 characters"),
+  check("description").notEmpty().withMessage("Description is required"),
+  handleValidationErrors,
+];
+
 const validateReview = [
   check("review").notEmpty().withMessage("Review text is required"),
   check("starRating")
@@ -154,10 +163,24 @@ router.post(
         review,
         starRating,
       });
-      return res.json(newReview);
+      return res.status(201).json(newReview);
     }
   }
 );
+
+// Create a Post
+router.post("/", requireAuth, validatePost, async (req, res, next) => {
+  const userId = parseInt(req.user.id);
+  const { name, description } = req.body;
+
+  const newPost = await Post.create({
+    ownerId: userId,
+    name,
+    description,
+  });
+
+  return res.status(201).json(newPost);
+});
 
 // Delete a Spot
 router.delete("/:postId", requireAuth, async (req, res, next) => {
