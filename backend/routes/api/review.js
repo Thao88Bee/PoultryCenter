@@ -3,7 +3,6 @@ const { Review } = require("../../db/models");
 const { requireAuth } = require("../../utils/auth");
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
-const { json } = require("sequelize");
 
 const router = express.Router();
 
@@ -43,7 +42,7 @@ router.patch(
       review,
       starRating,
     });
-    res.json(editReview);
+    res.json(editReview)
   }
 );
 
