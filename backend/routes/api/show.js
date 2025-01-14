@@ -83,6 +83,37 @@ router.post("/", requireAuth, validateShow, async (req, res, next) => {
   return res.status(201).json(newShow);
 });
 
+// Edit a Show
+router.patch("/:showId", requireAuth, validateShow, async (req, res, next) => {
+  const userId = parseInt(req.user.id);
+  const showId = parseInt(req.params.showId);
+  const editShow = await Show.findByPk(showId);
+  const { name, date, description, address, city, state, image } = req.body;
+
+  if (!editShow) {
+    return res.status(404).json({
+      message: "Show couldn't be found",
+    });
+  }
+
+  if (editShow.ownerId !== userId) {
+    return res.status(403).json({
+      message: "Forbidden",
+    });
+  }
+
+  await editShow.update({
+    name,
+    date,
+    description,
+    address,
+    city,
+    state,
+    image,
+  });
+  return res.json(editShow);
+});
+
 // Delete a Show
 router.delete("/:showId", requireAuth, async (req, res, next) => {
   const userId = parseInt(req.user.id);
