@@ -171,12 +171,13 @@ router.post(
 // Create a Post
 router.post("/", requireAuth, validatePost, async (req, res, next) => {
   const userId = parseInt(req.user.id);
-  const { name, description } = req.body;
+  const { name, description, image } = req.body;
 
   const newPost = await Post.create({
     ownerId: userId,
     name,
     description,
+    image,
   });
 
   return res.status(201).json(newPost);
