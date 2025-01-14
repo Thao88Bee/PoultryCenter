@@ -25,9 +25,9 @@ router.use("/swapMeets", swapMeetRouter);
 router.use("/posts", postRouter);
 router.use("/reviews", reviewRouter);
 
-router.post("/test", (req, res) => {
-  res.json({ requestBody: req.body });
-});
+// router.post("/test", (req, res) => {
+//   res.json({ requestBody: req.body });
+// });
 
 // GET /api/set-token-cookie
 // router.get("/set-token-cookie", async (_req, res) => {
@@ -49,10 +49,6 @@ router.post("/test", (req, res) => {
 // const { requireAuth } = require("../../utils/auth.js");
 // router.get("/require-auth", requireAuth, (req, res) => {
 //   return res.json(req.user);
-// });
-
-// router.post("/test", function (req, res) {
-//   res.json({ requestBody: req.body });
 // });
 
 module.exports = router;
