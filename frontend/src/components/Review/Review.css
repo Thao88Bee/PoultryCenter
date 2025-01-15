@@ -1,0 +1,13 @@
+.review {
+    display: grid;
+    margin-bottom: 30px;
+    background-color: rgb(197, 197, 197);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.reviewTopSec {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

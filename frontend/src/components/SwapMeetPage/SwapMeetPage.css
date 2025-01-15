@@ -2,7 +2,7 @@
   display: grid;
   gap: 10px;
   justify-items: center;
-  padding-inline: 50px;
+  padding-inline: 30px;
 }
 
 .swapMeetHeaderSec {
@@ -15,13 +15,16 @@
 
 .swapMeetInfoSec {
   display: grid;
-  gap: 30px;
+  gap: 15px;
   width: 100%;
 }
 
 .swapMeetInfo {
   display: flex;
   justify-content: space-between;
+  padding: 10px;
+  background-color: rgb(197, 197, 197);
+  border-radius: 10px;
 }
 
 .swapMeetName {

@@ -19,7 +19,7 @@ function ShowPage() {
     <>
       <div className="shows">
         <section className="showHeaderSec">
-          <h1>Show Page</h1>
+          <h1>Shows Page</h1>
         </section>
 
         <section className="showInfoSec">

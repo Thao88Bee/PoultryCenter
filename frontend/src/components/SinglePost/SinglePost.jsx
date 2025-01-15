@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getOnePostThunk } from "../../store/post";
 import Footer from "../Footer";
+import Review from "../Review";
 
 function SinglePost() {
   const dispatch = useDispatch();
@@ -30,6 +31,9 @@ function SinglePost() {
               {post.avgRating ? " Rating" : ""}
             </p>
         <p className="postDescription">{post.description}</p>
+        <div className="reviewSec">
+            <Review postId={postId} />
+        </div>
       </div>
       <Footer />
     </>

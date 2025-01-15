@@ -4,12 +4,14 @@ import sessionReducer from "./session";
 import showReducer from "./show";
 import swapMeetReducer from "./swapMeet";
 import postReducer from "./post";
+import reviewReducer from "./review";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   show: showReducer,
   swap: swapMeetReducer,
   post: postReducer,
+  review: reviewReducer,
 });
 
 let enhancer;
