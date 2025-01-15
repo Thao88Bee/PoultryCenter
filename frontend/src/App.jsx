@@ -11,6 +11,7 @@ import ProfilePage from "./components/ProfilePage";
 import ShowPage from "./components/ShowPage";
 import SwapMeetPage from "./components/SwapMeetPage";
 import PostPage from "./components/PostPage";
+import SingleShow from "./components/SingleShow";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -52,11 +53,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <ProfilePage />
+        element: <ProfilePage />,
       },
       {
         path: "/shows",
         element: <ShowPage />,
+      },
+      {
+        path: "/shows/:showId",
+        element: <SingleShow />,
       },
       {
         path: "/swapMeets",
