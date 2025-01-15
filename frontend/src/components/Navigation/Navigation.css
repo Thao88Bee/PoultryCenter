@@ -1,3 +1,43 @@
+.navBar {
+  display: grid;
+  padding: 20px;
+  justify-items: center;
+}
+
+.userSec {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.appName {
+  text-decoration: none;
+  font-size: clamp(40px, 8vw, 100px);
+  color: rgb(112, 112, 112);
+}
+
+.appName:hover {
+  color: rgb(179, 160, 107);
+}
+
+.navLinks {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.navLink {
+  text-decoration: none;
+  font-size: 20px;
+  /* font-weight: bold; */
+  color: black;
+}
+
+.navLink:hover {
+  color: red;
+}
+
 .hidden {
-    display: none;
-  }
+  display: none;
+}

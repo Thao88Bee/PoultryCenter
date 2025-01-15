@@ -37,9 +37,6 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={toggleMenu}>
-        <FaUserCircle />
-      </button>
       <ul className={ulClassName} ref={ulRef}>
         <li>{user.username}</li>
         <li>
@@ -50,6 +47,10 @@ function ProfileButton({ user }) {
           <button onClick={logout}>Log Out</button>
         </li>
       </ul>
+      <button onClick={logout}>Log Out</button>
+      <button className="userBtn" onClick={toggleMenu}>
+        <FaUserCircle />
+      </button>
     </>
   );
 }
