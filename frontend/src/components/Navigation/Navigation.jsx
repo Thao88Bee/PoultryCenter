@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
+import logo from "/favicon.ico";
 import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
@@ -24,7 +25,9 @@ function Navigation({ isLoaded }) {
   return (
     <ul>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/">
+          Poultry <img src={logo} alt="" /> Center
+        </NavLink>
       </li>
       {isLoaded && sessionLinks}
     </ul>
