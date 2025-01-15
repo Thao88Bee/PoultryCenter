@@ -8,31 +8,21 @@ function Navigation({ isLoaded }) {
   const navigate = useNavigate();
   const sessionUser = useSelector((state) => state.session.User);
 
-  const goToShow = (e) => {
-    e.preventDefault();
-    navigate("/shows");
-  };
-
-  const goToSwap = (e) => {
-    e.preventDefault();
-    navigate("/swapMeets");
-  };
-
-  const goToPost = (e) => {
-    e.preventDefault();
-    navigate("/posts");
-  };
+  const goTo = (e, page) => {
+    e.preventDefault()
+    navigate(`/${page}`)
+  }
 
   const sessionLinks = sessionUser ? (
     <ProfileButton className="userBtn" user={sessionUser} />
   ) : (
     <>
-      <NavLink className="loginBtn" to="/login">
+      <button className="loginBtn" onClick={(e) => goTo(e, "login")}>
         Log In
-      </NavLink>
-      <NavLink className="signupBtn" to="/signup">
+      </button>
+      <button className="signupBtn" onClick={(e) => goTo(e, "signup")}>
         Sign Up
-      </NavLink>
+      </button>
     </>
   );
 
@@ -42,15 +32,15 @@ function Navigation({ isLoaded }) {
         <section className="userSec">{isLoaded && sessionLinks}</section>
 
         <section className="logoSec">
-          <NavLink className="appName" to={sessionUser ? "/home" : "/"}>
+          <NavLink className="appName" to={ sessionUser ? "/home" : "/" }>
             Poultry <img src={logo} alt="" /> Center
           </NavLink>
         </section>
 
         <section className="navLinks">
-          <button onClick={goToShow}>Show</button>
-          <button onClick={goToSwap}>Swap Meet</button>
-          <button onClick={goToPost}>Post</button>
+          <button onClick={(e) => goTo(e, "shows")}>Shows</button>
+          <button onClick={(e) => goTo(e, "swapMeets")}>Swap Meets</button>
+          <button onClick={(e) => goTo(e, "posts")}>Posts</button>
         </section>
       </div>
     </>
