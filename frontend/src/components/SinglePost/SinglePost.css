@@ -1,0 +1,36 @@
+.singlePost {
+  display: grid;
+  gap: 30px;
+  justify-items: center;
+  text-align: center;
+}
+
+.singlePost h1 {
+  font-size: clamp(25px, 4vw, 45px);
+  padding-inline: 10px;
+}
+
+.singlePost p {
+  font-size: clamp(15px, 2vw, 20px);
+}
+
+.singlePostImg {
+  width: 400px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 30px 10px black;
+  margin-block: 30px;
+}
+
+.none {
+    margin: 20px;
+}
+
+.postDescription {
+    padding-inline: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .singlePostImg {
+    width: 275px;
+  }
+}

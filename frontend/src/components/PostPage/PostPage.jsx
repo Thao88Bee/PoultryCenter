@@ -27,7 +27,7 @@ function PostPage() {
         <section className="postInfoSec">
           {sortedPosts.map(({ id, name, avgRating }) => (
             <div className="postInfo" key={id}>
-              <NavLink className="postName">{name}</NavLink>
+              <NavLink className="postName" to={`/posts/${id}`}>{name}</NavLink>
               <p>
                 {avgRating ? avgRating : "No review"}
                 {avgRating ? <span className="star"> ★</span> : ""}

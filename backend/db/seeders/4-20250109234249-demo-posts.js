@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === "production") {
 const posts = [
   {
     ownerId: 1,
-    name: "Any idea what type of chickens these are?",
+    name: "Any idea what type of chicken he is?",
     image: "/images/post1.jpg",
     description: "They were given to us and we need more info on the breed. The roo has killed two of his hens.",
     avgRating: 3.0,
@@ -25,7 +25,7 @@ const posts = [
   {
     ownerId: 1,
     name: "7 frozen dead chickens",
-    image: "URL IMAGE HERE",
+    image: null,
     description: "Between last night and this morning- 7 frozen dead chickens. No sign of mites or lice. Most of their combs are PINK the older hens were pale. Normal poop.",
     avgRating: 4.5,
   },
@@ -53,7 +53,7 @@ const posts = [
   {
     ownerId: 3,
     name: "3 chicken breeds for beginners",
-    image: "URL IMAGE HERE",
+    image: null,
     description: "Rhode Island Red, hardy and easy to care for. Buff Orpington, known for their friendly and docile nature. Australorp, this breed is famous for its egg-laying ability.",
     avgRating: 5,
   },

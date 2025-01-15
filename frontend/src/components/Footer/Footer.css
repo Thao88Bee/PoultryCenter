@@ -22,6 +22,7 @@
     display: grid;
     justify-items: center;
     gap: 10px;
+    text-align: center;
 }
 
 .footerRightsSec h1 {
@@ -35,4 +36,11 @@
 
 .footerLink:hover {
     color: rgb(0, 0, 255);
+}
+
+@media screen and (max-width: 700px) {
+    .footerInfoSec {
+        display: grid;
+        gap: 20px;
+    }
 }

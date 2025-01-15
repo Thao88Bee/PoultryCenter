@@ -13,6 +13,7 @@ import SingleShow from "./components/SingleShow";
 import SwapMeetPage from "./components/SwapMeetPage";
 import SingleSwapMeet from "./components/SingleSwapMeet";
 import PostPage from "./components/PostPage";
+import SinglePost from "./components/SinglePost";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
       {
         path: "/posts",
         element: <PostPage />,
+      },
+      {
+        path: "/posts/:postId",
+        element: <SinglePost />,
       },
     ],
   },
