@@ -1,44 +1,52 @@
-import { useState, useEffect, useRef } from "react";
+// import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { FaUserCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
-  const [showMenu, setShowMenu] = useState(false);
-  const ulRef = useRef();
+  const navigate = useNavigate();
+  // const [showMenu, setShowMenu] = useState(false);
+  // const ulRef = useRef();
 
-  const toggleMenu = (e) => {
-    e.stopPropagation(); // Keep click from bubbling up to document and triggering closeMenu
-    // if (!showMenu) setShowMenu(true);
-    setShowMenu(!showMenu);
-  };
+  // const toggleMenu = (e) => {
+  //   e.stopPropagation(); // Keep click from bubbling up to document and triggering closeMenu
+  //   // if (!showMenu) setShowMenu(true);
+  //   setShowMenu(!showMenu);
+  // };
 
-  useEffect(() => {
-    if (!showMenu) return;
+  // useEffect(() => {
+  //   if (!showMenu) return;
 
-    const closeMenu = (e) => {
-      if (ulRef.current && !ulRef.current.contains(e.target)) {
-        setShowMenu(false);
-      }
-    };
+  //   const closeMenu = (e) => {
+  //     if (ulRef.current && !ulRef.current.contains(e.target)) {
+  //       setShowMenu(false);
+  //     }
+  //   };
 
-    document.addEventListener("click", closeMenu);
+  //   document.addEventListener("click", closeMenu);
 
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
+  //   return () => document.removeEventListener("click", closeMenu);
+  // }, [showMenu]);
+
+  const goToProfile = (e) => {
+    e.preventDefault();
+    navigate("/profile")
+  }
 
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    navigate("/");
   };
 
-  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+  // const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 
   return (
     <>
-      <ul className={ulClassName} ref={ulRef}>
-        <li>{user.username}</li>
+      {/* <ul className={ulClassName} ref={ulRef}>
+        <li></li>
         <li>
           {user.firstName} {user.lastName}
         </li>
@@ -46,10 +54,11 @@ function ProfileButton({ user }) {
         <li>
           <button onClick={logout}>Log Out</button>
         </li>
-      </ul>
+      </ul> */}
       <button onClick={logout}>Log Out</button>
-      <button className="userBtn" onClick={toggleMenu}>
+      <button className="userBtn" onClick={goToProfile}>
         <FaUserCircle />
+        {user.username}
       </button>
     </>
   );

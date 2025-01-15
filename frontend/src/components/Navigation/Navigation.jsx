@@ -42,7 +42,7 @@ function Navigation({ isLoaded }) {
         <section className="userSec">{isLoaded && sessionLinks}</section>
 
         <section className="logoSec">
-          <NavLink className="appName" to="/">
+          <NavLink className="appName" to={sessionUser ? "/home" : "/"}>
             Poultry <img src={logo} alt="" /> Center
           </NavLink>
         </section>
