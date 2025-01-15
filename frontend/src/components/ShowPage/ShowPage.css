@@ -1,0 +1,40 @@
+.shows {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  padding-inline: 50px;
+}
+
+.showHeaderSec {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.showInfoSec {
+  display: grid;
+  gap: 30px;
+  width: 100%;
+}
+
+.showInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.showName {
+    text-decoration: none;
+    color: black;
+}
+
+.showName:hover {
+    color: red;
+}
+
+@media screen and (max-width: 700px) {
+    .showInfo {
+        display: grid;
+        justify-content: center;
+        text-align: center;
+        gap: 5px;
+    }
+}

@@ -4,6 +4,19 @@
   justify-items: center;
 }
 
+.signupBtn,
+.userBtn {
+  margin-left: 10px;
+}
+
+.loginBtn,
+.signupBtn,
+.logoutBtn,
+.userBtn {
+  width: 65px;
+  height: 25px;
+}
+
 .userSec {
   width: 100%;
   display: flex;
@@ -20,24 +33,22 @@
   color: rgb(179, 160, 107);
 }
 
-.navLinks {
+.navBtns {
   display: flex;
   width: 100%;
   justify-content: space-around;
   margin: 20px;
 }
 
-.navLink {
-  text-decoration: none;
-  font-size: 20px;
-  /* font-weight: bold; */
-  color: black;
+.loginBtn,
+.signupBtn,
+.logoutBtn,
+.userBtn,
+.navBtns button {
+  cursor: pointer;
 }
 
-.navLink:hover {
-  color: red;
-}
-
-.hidden {
-  display: none;
+.navBtns button {
+  width: 100px;
+  height: 25px;
 }

@@ -37,7 +37,7 @@ function Navigation({ isLoaded }) {
           </NavLink>
         </section>
 
-        <section className="navLinks">
+        <section className="navBtns">
           <button onClick={(e) => goTo(e, "shows")}>Shows</button>
           <button onClick={(e) => goTo(e, "swapMeets")}>Swap Meets</button>
           <button onClick={(e) => goTo(e, "posts")}>Posts</button>

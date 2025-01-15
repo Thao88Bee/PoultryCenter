@@ -55,7 +55,7 @@ function ProfileButton({ user }) {
           <button onClick={logout}>Log Out</button>
         </li>
       </ul> */}
-      <button onClick={logout}>Log Out</button>
+      <button className="logoutBtn" onClick={logout}>Log Out</button>
       <button className="userBtn" onClick={goToProfile}>
         <FaUserCircle />
         {user.username}
