@@ -1,7 +1,46 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { getAllSwapMeetsThunk } from "../../store/swapMeet";
+import Footer from "../Footer";
+import "./SwapMeetPage.css";
+
 function SwapMeetPage() {
+  const dispatch = useDispatch();
+  const swapMeets = useSelector((state) => state.swap.Swaps);
+
+  const sortedSwapMeets = swapMeets?.sort((a, b) => (a.date > b.date ? 0 : -1));
+
+  useEffect(() => {
+    dispatch(getAllSwapMeetsThunk());
+  }, [dispatch]);
+
   return (
     <>
-      <h1>Swap Meet Page</h1>
+      <div className="swapMeets">
+        <section className="swapMeetHeaderSec">
+          <h1>Swap Meets Page</h1>
+        </section>
+
+        <section className="swapMeetInfoSec">
+          {sortedSwapMeets.map(({ id, name, date }) => (
+            <div className="swapMeetInfo" key={id}>
+              <NavLink className="swapMeetName">{name}</NavLink>
+              <p>
+                <span>
+                  {new Date(date).toLocaleString("default", {
+                    month: "long",
+                  })}
+                </span>{" "}
+                <span>{new Date(date).getDate()}</span>
+                {", "}
+                <span>{new Date(date).getFullYear()}</span>
+              </p>
+            </div>
+          ))}
+        </section>
+      </div>
+      <Footer />
     </>
   );
 }

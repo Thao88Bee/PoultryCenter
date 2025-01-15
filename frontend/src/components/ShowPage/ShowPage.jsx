@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getAllShowsThunk } from "../../store/show";
+import Footer from "../Footer";
 import "./ShowPage.css";
 
 function ShowPage() {
   const dispatch = useDispatch();
   const shows = useSelector((state) => state.show.Shows);
 
-  console.log(shows);
+  const sortedShows = shows?.sort((a, b) => (a.date > b.date ? 0 : -1));
 
   useEffect(() => {
     dispatch(getAllShowsThunk());
@@ -22,7 +23,7 @@ function ShowPage() {
         </section>
 
         <section className="showInfoSec">
-          {shows.map(({ id, name, date }) => (
+          {sortedShows.map(({ id, name, date }) => (
             <div className="showInfo" key={id}>
               <NavLink className="showName">{name}</NavLink>
               <p>
@@ -39,6 +40,7 @@ function ShowPage() {
           ))}
         </section>
       </div>
+      <Footer />
     </>
   );
 }

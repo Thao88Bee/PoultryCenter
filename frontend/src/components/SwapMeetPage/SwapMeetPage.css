@@ -1,0 +1,40 @@
+.swapMeets {
+    display: grid;
+    gap: 10px;
+    justify-items: center;
+    padding-inline: 50px;
+  }
+  
+  .swapMeetHeaderSec {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .swapMeetInfoSec {
+    display: grid;
+    gap: 30px;
+    width: 100%;
+  }
+  
+  .swapMeetInfo {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .swapMeetName {
+      text-decoration: none;
+      color: black;
+  }
+  
+  .swapMeetName:hover {
+      color: red;
+  }
+  
+  @media screen and (max-width: 700px) {
+      .swapMeetInfo {
+          display: grid;
+          justify-content: center;
+          text-align: center;
+          gap: 5px;
+      }
+  }

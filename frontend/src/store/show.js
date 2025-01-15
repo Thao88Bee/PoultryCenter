@@ -15,8 +15,8 @@ export const getAllShowsThunk = () => async (dispatch) => {
     dispatch(getAllShowsAction(data));
     return data;
   } else {
-    const error = await res.json();
-    throw error;
+    const err = await res.json();
+    throw err;
   }
 };
 
