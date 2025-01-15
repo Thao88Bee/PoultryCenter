@@ -1,0 +1,44 @@
+.posts {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  padding-inline: 50px;
+}
+
+.postHeaderSec {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.postInfoSec {
+  display: grid;
+  gap: 30px;
+  width: 100%;
+}
+
+.postInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.postName {
+  text-decoration: none;
+  color: black;
+}
+
+.postName:hover {
+  color: red;
+}
+
+.star {
+    color: gold;
+}
+
+@media screen and (max-width: 700px) {
+  .postInfo {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
+  }
+}
