@@ -25,7 +25,7 @@ function SwapMeetPage() {
         <section className="swapMeetInfoSec">
           {sortedSwapMeets.map(({ id, name, date }) => (
             <div className="swapMeetInfo" key={id}>
-              <NavLink className="swapMeetName">{name}</NavLink>
+              <NavLink className="swapMeetName" to={`/swapMeets/${id}`}>{name}</NavLink>
               <p>
                 <span>
                   {new Date(date).toLocaleString("default", {

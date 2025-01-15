@@ -6,8 +6,11 @@
 }
 
 .showHeaderSec {
-  font-size: 20px;
   margin-bottom: 30px;
+}
+
+.showHeaderSec h1 {
+  font-size: clamp(25px, 4vw, 45px);
 }
 
 .showInfoSec {
@@ -22,19 +25,24 @@
 }
 
 .showName {
-    text-decoration: none;
-    color: black;
+  font-size: clamp(15px, 2vw, 20px);
+  text-decoration: none;
+  color: black;
+}
+
+.showInfo p {
+  font-size: clamp(15px, 2vw, 20px);
 }
 
 .showName:hover {
-    color: red;
+  color: red;
 }
 
 @media screen and (max-width: 700px) {
-    .showInfo {
-        display: grid;
-        justify-content: center;
-        text-align: center;
-        gap: 5px;
-    }
+  .showInfo {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
+  }
 }

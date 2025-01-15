@@ -1,40 +1,48 @@
 .swapMeets {
-    display: grid;
-    gap: 10px;
-    justify-items: center;
-    padding-inline: 50px;
-  }
-  
-  .swapMeetHeaderSec {
-    font-size: 20px;
-    margin-bottom: 30px;
-  }
-  
-  .swapMeetInfoSec {
-    display: grid;
-    gap: 30px;
-    width: 100%;
-  }
-  
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  padding-inline: 50px;
+}
+
+.swapMeetHeaderSec {
+  margin-bottom: 30px;
+}
+
+.swapMeetHeaderSec h1 {
+  font-size: clamp(25px, 4vw, 45px);
+}
+
+.swapMeetInfoSec {
+  display: grid;
+  gap: 30px;
+  width: 100%;
+}
+
+.swapMeetInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.swapMeetName {
+  font-size: clamp(15px, 2vw, 20px);
+  text-decoration: none;
+  color: black;
+}
+
+.swapMeetInfo p {
+  font-size: clamp(15px, 2vw, 20px);
+}
+
+.swapMeetName:hover {
+  color: red;
+}
+
+@media screen and (max-width: 700px) {
   .swapMeetInfo {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
   }
-  
-  .swapMeetName {
-      text-decoration: none;
-      color: black;
-  }
-  
-  .swapMeetName:hover {
-      color: red;
-  }
-  
-  @media screen and (max-width: 700px) {
-      .swapMeetInfo {
-          display: grid;
-          justify-content: center;
-          text-align: center;
-          gap: 5px;
-      }
-  }
+}

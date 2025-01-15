@@ -9,9 +9,10 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import ProfilePage from "./components/ProfilePage";
 import ShowPage from "./components/ShowPage";
-import SwapMeetPage from "./components/SwapMeetPage";
-import PostPage from "./components/PostPage";
 import SingleShow from "./components/SingleShow";
+import SwapMeetPage from "./components/SwapMeetPage";
+import SingleSwapMeet from "./components/SingleSwapMeet";
+import PostPage from "./components/PostPage";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "/swapMeets",
         element: <SwapMeetPage />,
+      },
+      {
+        path: "/swapMeets/:swapMeetId",
+        element: <SingleSwapMeet />,
       },
       {
         path: "/posts",

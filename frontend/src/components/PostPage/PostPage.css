@@ -6,8 +6,11 @@
 }
 
 .postHeaderSec {
-  font-size: 20px;
   margin-bottom: 30px;
+}
+
+.postHeaderSec h1 {
+  font-size: clamp(25px, 4vw, 45px);
 }
 
 .postInfoSec {
@@ -22,8 +25,13 @@
 }
 
 .postName {
+  font-size: clamp(15px, 2vw, 20px);
   text-decoration: none;
   color: black;
+}
+
+.postInfo p {
+  font-size: clamp(15px, 2vw, 20px);
 }
 
 .postName:hover {
@@ -31,7 +39,7 @@
 }
 
 .star {
-    color: gold;
+  color: gold;
 }
 
 @media screen and (max-width: 700px) {

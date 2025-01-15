@@ -25,7 +25,9 @@ function ShowPage() {
         <section className="showInfoSec">
           {sortedShows.map(({ id, name, date }) => (
             <div className="showInfo" key={id}>
-              <NavLink className="showName" to={`/shows/${id}`}>{name}</NavLink>
+              <NavLink className="showName" to={`/shows/${id}`}>
+                {name}
+              </NavLink>
               <p>
                 <span>
                   {new Date(date).toLocaleString("default", {
