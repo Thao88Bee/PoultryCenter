@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+import OpenModalButton from "../OpenModalButton/OpenModalButton";
+import TermsOfUse from "../TermsOfUse";
 import "./Footer.css";
 
 function Footer() {
@@ -31,9 +33,10 @@ function Footer() {
         <p>© Copyright 2025, poultrycenter.onrender.com, All Rights Reserved.</p>
         <p>
           The following rules apply to the use of this site:{" "}
-          <NavLink className="footerLink" onClick={() => alert("Feature coming soon.")}>
-            Terms of Use
-          </NavLink>
+          <OpenModalButton 
+            buttonText="Terms of Use"
+            modalComponent={<TermsOfUse />}
+          />
           ,{" "}
           <NavLink className="footerLink" onClick={() => alert("Feature coming soon.")}>
             Privacy Policy

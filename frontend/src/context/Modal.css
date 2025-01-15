@@ -1,6 +1,6 @@
 #modal {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  /* top: 0; */
   right: 0;
   left: 0;
   bottom: 0;
@@ -21,4 +21,12 @@
 #modal-content {
   position: absolute;
   background-color: white;
+  border-radius: 20px;
+  border: 2px solid;
+}
+
+@media screen and (min-width: 700px ) {
+  #modal {
+    top: 0;
+  }
 }

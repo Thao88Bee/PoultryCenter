@@ -1,0 +1,10 @@
+.modalBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modalBtn:hover {
+    color: blue;
+}
