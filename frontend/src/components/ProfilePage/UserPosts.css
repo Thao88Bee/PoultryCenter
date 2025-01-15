@@ -1,0 +1,51 @@
+.userPosts {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin: 10px;
+    width: 90%;
+    background-color: rgb(197, 197, 197);
+    border-radius: 10px;
+}
+
+.userPostsImg {
+    width: 100px;
+    border-radius: 10px;
+}
+
+.userPostsInfo {
+    display: grid;
+    align-items: center;
+}
+
+.userPostsBtn {
+    display: flex;
+    gap: 10px;
+}
+
+.userPostsDeleteBtn,
+.userPostsEditBtn {
+    width: 100px;
+    padding: 4px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.userPostsDeleteBtn {
+    background-color: rgb(255, 123, 123);
+}
+
+.userPostsDeleteBtn:hover {
+    background-color: red;
+    color: white;
+}
+
+.userPostsEditBtn {
+    background-color: rgb(102, 189, 102);
+}
+
+.userPostsEditBtn:hover {
+    background-color: rgb(31, 117, 0);
+    color: white;
+}

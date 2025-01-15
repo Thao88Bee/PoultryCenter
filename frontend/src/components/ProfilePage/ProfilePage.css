@@ -1,0 +1,7 @@
+.userProfilePost {
+    justify-items: center;
+}
+
+.userProfilePost h2 {
+    border-bottom: 1px solid black;
+}

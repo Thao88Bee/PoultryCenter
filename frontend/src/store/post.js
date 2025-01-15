@@ -1,5 +1,8 @@
+import { csrfFetch } from "./csrf";
+
 const GET_ALL_POSTS = "post/getAllPosts";
 const GET_ONE_POST = "post/getOnePost";
+const GET_USER_POSTS = "post/getUserPosts";
 
 export const getAllPostsAction = (posts) => {
   return {
@@ -12,6 +15,13 @@ export const getOnePostAction = (post) => {
   return {
     type: GET_ONE_POST,
     payload: post,
+  };
+};
+
+export const getUserPostsAction = (posts) => {
+  return {
+    type: GET_USER_POSTS,
+    payload: posts,
   };
 };
 
@@ -41,6 +51,19 @@ export const getOnePostThunk = (postId) => async (dispatch) => {
   }
 };
 
+export const getUserPostsThunk = () => async (dispatch) => {
+  const res = await csrfFetch(`/api/user/posts`);
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(getUserPostsAction(data));
+    return data;
+  } else {
+    const err = await res.json();
+    throw err;
+  }
+};
+
 const initialState = {
   Posts: [],
   Post: {},
@@ -52,6 +75,8 @@ const postReducer = (state = initialState, action) => {
       return { ...state, Posts: action.payload.Posts };
     case GET_ONE_POST:
       return { ...state, Post: action.payload };
+    case GET_USER_POSTS:
+      return { ...state, Posts: action.payload.Posts };
     default:
       return state;
   }
