@@ -29,11 +29,11 @@ module.exports = {
           allowNull: false,
         },
         image: {
-          type: Sequelize.STRING,
+          type: Sequelize.TEXT,
           allowNull: true,
         },
         description: {
-          type: Sequelize.STRING(500),
+          type: Sequelize.TEXT,
           allowNull: false,
         },
         avgRating: {
