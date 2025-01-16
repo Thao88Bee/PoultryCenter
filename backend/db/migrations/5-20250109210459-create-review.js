@@ -30,7 +30,7 @@ module.exports = {
           onDelete: "CASCADE",
         },
         review: {
-          type: Sequelize.STRING(500),
+          type: Sequelize.TEXT,
           allowNull: false,
         },
         starRating: {
