@@ -17,7 +17,7 @@ function Review({ postId }) {
         <div className="review" key={id}>
           <div className="reviewTopSec">
             <p>
-              {Owner.lastName}, {Owner.firstName}
+              {Owner?.lastName}, {Owner?.firstName}
             </p>
             <p>
               {starRating} <span className="star">★</span>

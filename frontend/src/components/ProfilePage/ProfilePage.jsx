@@ -1,7 +1,8 @@
-import Footer from "../Footer";
 import UserShows from "./UserShows";
 import UserSwapMeets from "./UserSwapMeets";
 import UserPosts from "./UserPosts";
+import UserReviews from "./UserReviews";
+import Footer from "../Footer";
 import "./ProfilePage.css";
 
 function ProfilePage() {
@@ -14,6 +15,8 @@ function ProfilePage() {
         <UserSwapMeets />
         <h2>User Posts</h2>
         <UserPosts />
+        <h2>User Reviews</h2>
+        <UserReviews />
       </div>
       <Footer />
     </>

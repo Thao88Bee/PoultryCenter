@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Outlet, createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  Outlet,
+  createBrowserRouter,
+  RouterProvider,
+  ScrollRestoration,
+} from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
@@ -27,6 +32,7 @@ function Layout() {
 
   return (
     <>
+      <ScrollRestoration />
       <Navigation isLoaded={isLoaded} />
       {isLoaded && <Outlet />}
     </>
