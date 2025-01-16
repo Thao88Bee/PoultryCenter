@@ -24,6 +24,11 @@ function LoginFormPage() {
     );
   };
 
+  const demo = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.demoLogin());
+  };
+
   return (
     <>
       <h1>Log In</h1>
@@ -48,6 +53,7 @@ function LoginFormPage() {
         </label>
         {errors.credential && <p>{errors.credential}</p>}
         <button type="submit">Log In</button>
+        <button onClick={demo}>Log In as Demo User</button>
       </form>
     </>
   );

@@ -21,18 +21,18 @@ function SinglePost() {
     <>
       <div className="singlePost">
         <h1>{post.name}</h1>
-          <img className={imageClass} src={post.image} alt="" />
-            <p>
-              Post owner {post.Owner?.lastName}, {post.Owner?.firstName}
-            </p>
-            <p>
-              {post.avgRating ? post.avgRating : "No review"}
-              {post.avgRating ? <span className="star"> ★</span> : ""}
-              {post.avgRating ? " Rating" : ""}
-            </p>
+        <img className={imageClass} src={post.image} alt="" />
+        <p>
+          Post owner {post.Owner?.lastName}, {post.Owner?.firstName}
+        </p>
+        <p>
+          {post.avgRating ? post.avgRating : "No review"}
+          {post.avgRating ? <span className="star"> ★</span> : ""}
+          {post.avgRating ? " Rating" : ""}
+        </p>
         <p className="postDescription">{post.description}</p>
         <div className="reviewSec">
-            <Review postId={postId} />
+          <Review postId={postId} />
         </div>
       </div>
       <Footer />

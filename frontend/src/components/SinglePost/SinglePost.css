@@ -22,15 +22,15 @@
 }
 
 .none {
-    margin: 20px;
+  margin: 20px;
 }
 
 .postDescription {
-    padding-inline: 30px;
+  padding-inline: 30px;
 }
 
 .reviewSec {
-    width: 90%;
+  width: 90%;
 }
 
 @media screen and (max-width: 700px) {

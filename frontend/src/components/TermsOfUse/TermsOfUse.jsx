@@ -7,9 +7,8 @@ function TermsOfUse() {
         <h2>Terms of Use</h2>
         <h3>Last updated: [Month Day, Year]</h3>
         <p>
-          Welcome to the Poultry Center website (&#34Site&#34). By using the
-          Site, you agree to these Terms of Use. If you do not agree, do not use
-          the Site.
+          Welcome to the Poultry Center website. By using the Site, you agree to
+          these Terms of Use. If you do not agree, do not use the Site.
         </p>
         <h3>1. Acceptance</h3>
         <p>

@@ -30,7 +30,8 @@ function SingleShow() {
           {new Date(show.date).toLocaleString("default", {
             month: "long",
           })}{" "}
-          {new Date(show.date).getDate()}{", "}
+          {new Date(show.date).getDate()}
+          {", "}
           {new Date(show.date).getFullYear()}
         </p>
         <p>{show.description}</p>

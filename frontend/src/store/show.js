@@ -1,5 +1,8 @@
+import { csrfFetch } from "./csrf";
+
 const GET_ALL_SHOWS = "show/getAllShows";
 const GET_ONE_SHOW = "show/getOneShow";
+const GET_USER_SHOWS = "show/getUserShows";
 
 export const getAllShowsAction = (shows) => {
   return {
@@ -12,6 +15,13 @@ export const getOneShowAction = (show) => {
   return {
     type: GET_ONE_SHOW,
     payload: show,
+  };
+};
+
+export const getUserShowsAction = (shows) => {
+  return {
+    type: GET_USER_SHOWS,
+    payload: shows,
   };
 };
 
@@ -41,6 +51,19 @@ export const getOneShowThunk = (showId) => async (dispatch) => {
   }
 };
 
+export const getUserShowsThunk = () => async (dispatch) => {
+  const res = await csrfFetch("/api/user/shows");
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(getUserShowsAction(data));
+    return data;
+  } else {
+    const err = await res.json();
+    throw err;
+  }
+};
+
 const initialState = {
   Shows: [],
   Show: {},
@@ -52,6 +75,8 @@ const showReducer = (state = initialState, action) => {
       return { ...state, Shows: action.payload.Shows };
     case GET_ONE_SHOW:
       return { ...state, Show: action.payload };
+    case GET_USER_SHOWS:
+      return { ...state, Shows: action.payload.Shows };
     default:
       return state;
   }

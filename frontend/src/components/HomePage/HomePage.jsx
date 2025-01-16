@@ -1,7 +1,13 @@
+import Footer from "../Footer";
+import "./HomePage.css";
+
 function HomePage() {
   return (
     <>
-      <h1>Home Page</h1>
+      <div>
+        <h1>Home Page</h1>
+      </div>
+      <Footer />
     </>
   );
 }

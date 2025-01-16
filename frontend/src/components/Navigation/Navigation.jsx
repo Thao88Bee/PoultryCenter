@@ -9,9 +9,9 @@ function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.User);
 
   const goTo = (e, page) => {
-    e.preventDefault()
-    navigate(`/${page}`)
-  }
+    e.preventDefault();
+    navigate(`/${page}`);
+  };
 
   const sessionLinks = sessionUser ? (
     <ProfileButton className="userBtn" user={sessionUser} />
@@ -32,7 +32,7 @@ function Navigation({ isLoaded }) {
         <section className="userSec">{isLoaded && sessionLinks}</section>
 
         <section className="logoSec">
-          <NavLink className="appName" to={ sessionUser ? "/home" : "/" }>
+          <NavLink className="appName" to={sessionUser ? "/home" : "/"}>
             Poultry <img src={logo} alt="" /> Center
           </NavLink>
         </section>

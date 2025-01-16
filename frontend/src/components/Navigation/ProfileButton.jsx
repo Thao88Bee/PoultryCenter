@@ -32,8 +32,8 @@ function ProfileButton({ user }) {
 
   const goToProfile = (e) => {
     e.preventDefault();
-    navigate("/profile")
-  }
+    navigate("/profile");
+  };
 
   const logout = (e) => {
     e.preventDefault();
@@ -55,7 +55,9 @@ function ProfileButton({ user }) {
           <button onClick={logout}>Log Out</button>
         </li>
       </ul> */}
-      <button className="logoutBtn" onClick={logout}>Log Out</button>
+      <button className="logoutBtn" onClick={logout}>
+        Log Out
+      </button>
       <button className="userBtn" onClick={goToProfile}>
         <FaUserCircle />
         {user.username}
