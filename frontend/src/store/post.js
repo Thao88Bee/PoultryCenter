@@ -52,7 +52,7 @@ export const getOnePostThunk = (postId) => async (dispatch) => {
 };
 
 export const getUserPostsThunk = () => async (dispatch) => {
-  const res = await csrfFetch(`/api/user/posts`);
+  const res = await csrfFetch("/api/user/posts");
 
   if (res.ok) {
     const data = await res.json();

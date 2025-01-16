@@ -21,6 +21,7 @@
   width: 100%;
   display: flex;
   justify-content: end;
+  margin-bottom: 10px;
 }
 
 .appName {
@@ -40,6 +41,13 @@
   margin: 20px;
 }
 
+.userBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
 .loginBtn,
 .signupBtn,
 .logoutBtn,
@@ -48,7 +56,24 @@
   cursor: pointer;
 }
 
+.loginBtn,
+.signupBtn,
+.logoutBtn,
+.userBtn,
 .navBtns button {
-  width: 100px;
+  width: 130px;
   height: 25px;
+  border: none;
+  background-color: rgb(112, 112, 112);
+  color: white;
+  border-radius: 5px;
+}
+
+.loginBtn:hover,
+.signupBtn:hover,
+.logoutBtn:hover,
+.userBtn:hover,
+.navBtns button:hover {
+  background-color: rgb(179, 160, 107);
+  color: black;
 }

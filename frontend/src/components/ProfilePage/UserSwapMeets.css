@@ -1,4 +1,4 @@
-.userShows {
+.userSwapMeets {
   display: grid;
   gap: 20px;
   padding: 20px;
@@ -8,29 +8,29 @@
   border-radius: 10px;
 }
 
-.userShowsInfo {
+.userSwapMeetsInfo {
   display: flex;
   justify-content: space-between;
 }
 
-.userShowsLink {
+.userSwapMeetsLink {
   text-decoration: none;
   color: black;
   font-weight: bold;
   width: fit-content;
 }
 
-.userShowsLink:hover {
+.userSwapMeetsLink:hover {
   color: red;
 }
 
-.userShowsBtn {
+.userSwapMeetsBtn {
   display: flex;
   gap: 10px;
 }
 
-.userShowsDeleteBtn,
-.userShowsEditBtn {
+.userSwapMeetsDeleteBtn,
+.userSwapMeetsEditBtn {
   width: 100px;
   padding: 4px;
   border: none;
@@ -38,34 +38,34 @@
   cursor: pointer;
 }
 
-.userShowsDeleteBtn {
+.userSwapMeetsDeleteBtn {
   background-color: rgb(255, 123, 123);
 }
 
-.userShowsDeleteBtn:hover {
+.userSwapMeetsDeleteBtn:hover {
   background-color: red;
   color: white;
 }
 
-.userShowsEditBtn {
+.userSwapMeetsEditBtn {
   background-color: rgb(102, 189, 102);
 }
 
-.userShowsEditBtn:hover {
+.userSwapMeetsEditBtn:hover {
   background-color: rgb(31, 117, 0);
   color: white;
 }
 
 @media screen and (max-width: 700px) {
-  .userShows {
+  .userSwapMeets {
     padding-inline: 10px;
   }
-  .userShowsInfo {
+  .userSwapMeetsInfo {
     display: grid;
     justify-content: center;
     text-align: center;
   }
-  .userShowsBtn {
+  .userSwapMeetsBtn {
     justify-content: center;
   }
 }

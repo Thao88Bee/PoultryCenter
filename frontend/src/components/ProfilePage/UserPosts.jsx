@@ -16,7 +16,7 @@ function UserPosts() {
     <>
       {userPosts.map(({ id, name, description, avgRating, image }) => (
         <div className="userPosts" key={id}>
-          <img className="userPostsImg" src={image} alt="" />
+          <img className={ image ? "userPostsImg" : "" } src={image} alt="" />
           <div className="userPostsInfo">
             <NavLink className="userPostsLink" to={`/posts/${id}`}>
               {name}
