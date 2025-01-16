@@ -32,7 +32,7 @@ module.exports = {
           allowNull: false,
         },
         description: {
-          type: Sequelize.STRING,
+          type: Sequelize.TEXT,
           allowNull: false,
         },
         address: {
@@ -48,7 +48,7 @@ module.exports = {
           allowNull: false,
         },
         image: {
-          type: Sequelize.STRING,
+          type: Sequelize.TEXT,
           allowNull: true,
         },
         createdAt: {
