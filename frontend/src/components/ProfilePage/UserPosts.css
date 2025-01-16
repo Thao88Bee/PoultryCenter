@@ -45,11 +45,11 @@
 }
 
 .userPostsDeleteBtn {
-  background-color: rgb(255, 123, 123);
+  background-color: rgb(179, 160, 107);
 }
 
 .userPostsDeleteBtn:hover {
-  background-color: red;
+  background-color: rgb(59, 59, 59);
   color: white;
 }
 

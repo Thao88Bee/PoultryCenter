@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const GET_ALL_SHOWS = "show/getAllShows";
 const GET_ONE_SHOW = "show/getOneShow";
 const GET_USER_SHOWS = "show/getUserShows";
+const CREATE_SHOW = "show/createShow";
 
 export const getAllShowsAction = (shows) => {
   return {
@@ -22,6 +23,13 @@ export const getUserShowsAction = (shows) => {
   return {
     type: GET_USER_SHOWS,
     payload: shows,
+  };
+};
+
+export const createShowAction = (show) => {
+  return {
+    type: CREATE_SHOW,
+    payload: show,
   };
 };
 
@@ -64,6 +72,25 @@ export const getUserShowsThunk = () => async (dispatch) => {
   }
 };
 
+export const createShowThunk = (newShow) => async (dispatch) => {
+  const res = await csrfFetch("/api/shows", {
+    method: "POST",
+    headers: {
+      "Context-type": "application/json",
+    },
+    body: JSON.stringify(newShow),
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(createShowAction(data));
+    return data;
+  } else {
+    const err = await res.json();
+    throw err;
+  }
+};
+
 const initialState = {
   Shows: [],
   Show: {},
@@ -77,6 +104,8 @@ const showReducer = (state = initialState, action) => {
       return { ...state, Show: action.payload };
     case GET_USER_SHOWS:
       return { ...state, Shows: action.payload.Shows };
+    case CREATE_SHOW:
+      return { ...state, Show: action.payload };
     default:
       return state;
   }

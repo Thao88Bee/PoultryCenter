@@ -35,7 +35,7 @@ function SingleShow() {
           {new Date(show.date).getFullYear()}
         </p>
         <p>{show.description}</p>
-        <img src={show.image} alt="" />
+        <img className="singleShowImg" src={show.image} alt="" />
       </div>
       <Footer />
     </>

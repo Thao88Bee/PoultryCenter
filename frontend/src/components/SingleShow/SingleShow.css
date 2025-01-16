@@ -12,3 +12,14 @@
 .singleShow p {
   font-size: clamp(15px, 2vw, 25px);
 }
+
+.singleShowImg {
+  width: 600px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .singleShowImg {
+    width: 350px;
+  }
+}
