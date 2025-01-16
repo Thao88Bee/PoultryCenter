@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./SinglePost.css";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getOnePostThunk } from "../../store/post";
-import Footer from "../Footer";
 import Review from "../Review";
+import Footer from "../Footer";
+import "./SinglePost.css";
 
 function SinglePost() {
   const dispatch = useDispatch();

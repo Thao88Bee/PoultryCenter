@@ -23,7 +23,7 @@ function ShowPage() {
         </section>
 
         <section className="showInfoSec">
-          {sortedShows.map(({ id, name, date }) => (
+          {sortedShows?.map(({ id, name, date }) => (
             <div className="showInfo" key={id}>
               <NavLink className="showName" to={`/shows/${id}`}>
                 {name}

@@ -1,49 +1,48 @@
-.create {
-  display: grid;
-  justify-items: center;
-  gap: 20px;
+.update {
+    display: grid;
+    justify-items: center;
+    gap: 20px;
 }
 
-.createTitle {
+.updateTitle {
     color: rgb(59, 59, 59);
 }
 
-.createSec {
-  display: grid;
-  gap: 5px;
+.updateForm {
+    display: grid;
+    gap: 10px;
 }
 
-.createLabel {
+.updateSec {
+    display: grid;
+    gap: 5px;
+}
+
+.updateLabel {
     color: rgb(59, 59, 59);
     font-size: 18px;
 }
 
-.createInput {
+.updateInput {
     height: 25px;
     border: 2px solid rgb(59, 59, 59);
     border-radius: 5px;
 }
 
-.createBigInput {
-  border-radius: 5px;
-  border: 2px solid rgb(59, 59, 59);
-  width: 350px;
-  height: 200px;
+.updateBigInput {
+    border-radius: 5px;
+    border: 2px solid rgb(59, 59, 59);
+    width: 350px;
+    height: 200px;
 }
 
-.error {
-  color: red;
-  text-align: center;
-  margin-block: 10px;
-}
-
-.createBtnSec {
+.updateBtnSec {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-.createBtn {
+.updateBtn {
     width: 125px;
     height: 25px;
     cursor: pointer;
@@ -53,7 +52,7 @@
     color: white;
 }
 
-.createBtn:hover {
+.updateBtn:hover {
     background-color: rgb(179, 160, 107);
     color: black;
 }

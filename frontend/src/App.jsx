@@ -20,6 +20,7 @@ import SingleSwapMeet from "./components/SingleSwapMeet";
 import PostPage from "./components/PostPage";
 import SinglePost from "./components/SinglePost";
 import CreateShow from "./components/Create/CreateShow";
+import UpdateShow from "./components/Update/UpdateShow";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -74,7 +75,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/shows/create",
-        element: <CreateShow />
+        element: <CreateShow />,
+      },
+      {
+        path: "/shows/:showId/update",
+        element: <UpdateShow />,
       },
       {
         path: "/swapMeets",

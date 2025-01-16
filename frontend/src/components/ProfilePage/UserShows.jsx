@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUserShowsThunk } from "../../store/show";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./UserShows.css";
 
 function UserShows() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userShows = useSelector((state) => state.show.Shows);
 
   const sortedUserShows = userShows?.sort((a, b) => (a.date > b.date ? 0 : -1));
@@ -13,6 +14,11 @@ function UserShows() {
   useEffect(() => {
     dispatch(getUserShowsThunk());
   }, [dispatch]);
+
+  const goEditShow = (e, showId) => {
+    e.preventDefault();
+    navigate(`/shows/${showId}/update`)
+  };
 
   return (
     <>
@@ -35,7 +41,12 @@ function UserShows() {
           </div>
           <div className="userShowsBtn">
             <button className="userShowsDeleteBtn">Delete</button>
-            <button className="userShowsEditBtn">Edit</button>
+            <button
+              className="userShowsEditBtn"
+              onClick={(e) => goEditShow(e, id)}
+            >
+              Edit
+            </button>
           </div>
         </div>
       ))}

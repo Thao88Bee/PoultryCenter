@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
-import TermsOfUse from "../TermsOfUse";
+import TermsOfUse from "./TermsOfUse";
+import PrivacyPolicy from "./PrivacyPolicy";
+import CookiePolicy from "./CookiePolicy";
 import "./Footer.css";
-import PrivacyPolicy from "../PrivacyPolicy";
-import CookiePolicy from "../CookiePolicy";
 
 function Footer() {
   return (

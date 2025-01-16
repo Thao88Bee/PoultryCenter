@@ -78,7 +78,7 @@ function CreateShow() {
 
   return (
     <>
-      <div className="createShow">
+      <div className="create">
         <h2 className="createTitle">Add a New Show</h2>
         <form className="createForm" action="">
           <div className="createSec">

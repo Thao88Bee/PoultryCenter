@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./Review.css";
 import { useEffect } from "react";
 import { getPostReviewThunk } from "../../store/review";
+import "./Review.css";
 
 function Review({ postId }) {
   const dispatch = useDispatch();
