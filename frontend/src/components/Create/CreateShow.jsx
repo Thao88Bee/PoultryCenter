@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createShowThunk } from "../../store/show";
 import Footer from "../Footer";
-import "./CreateShow.css";
+import "./Create.css";
 
 function CreateShow() {
   const dispatch = useDispatch();

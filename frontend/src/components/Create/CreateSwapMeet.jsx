@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Footer from "../Footer";
 import { createSwapMeetThunk } from "../../store/swapMeet";
+import Footer from "../Footer";
+import "./Create.css";
 
 function CreateSwapMeet() {
   const dispatch = useDispatch();

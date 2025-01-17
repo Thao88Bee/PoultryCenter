@@ -4,6 +4,7 @@ const GET_ALL_SWAP_MEETS = "swapMeet/getAllSwapMeets";
 const GET_ONE_SWAP_MEET = "swapMeet/getOneSwapMeet";
 const GET_USER_SWAP_MEETS = "swapMeet/getUserSwapMeets";
 const CREATE_SWAP_MEET = "swapMeet/createSwapMeet";
+const UPDATE_SWAMP_MEET = "swapMeet/updateSwapMeet";
 
 export const getAllSwapMeetsAction = (swapMeets) => {
   return {
@@ -29,6 +30,13 @@ export const getUserSwapMeetsAction = (swapMeets) => {
 export const createSwapMeetAction = (swapMeet) => {
   return {
     type: CREATE_SWAP_MEET,
+    payload: swapMeet,
+  };
+};
+
+export const updateSwapMeetAction = (swapMeet) => {
+  return {
+    type: UPDATE_SWAMP_MEET,
     payload: swapMeet,
   };
 };
@@ -91,6 +99,26 @@ export const createSwapMeetThunk = (newSwapMeet) => async (dispatch) => {
   }
 };
 
+export const updateSwapMeetThunk =
+  (updatedSwapMeet, swapMeetId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/swapMeets/${swapMeetId}`, {
+      method: "PATCH",
+      headers: {
+        "Context-type": "application/json",
+      },
+      body: JSON.stringify(updatedSwapMeet),
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      dispatch(updateSwapMeetAction(data));
+      return data;
+    } else {
+      const err = await res.json();
+      throw err;
+    }
+  };
+
 const initialState = {
   Swaps: [],
   Swap: {},
@@ -105,6 +133,8 @@ const swapMeetReducer = (state = initialState, action) => {
     case GET_USER_SWAP_MEETS:
       return { ...state, Swaps: action.payload.Swaps };
     case CREATE_SWAP_MEET:
+      return { ...state, Swap: action.payload };
+    case UPDATE_SWAMP_MEET:
       return { ...state, Swap: action.payload };
     default:
       return state;

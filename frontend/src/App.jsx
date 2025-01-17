@@ -22,6 +22,7 @@ import SinglePost from "./components/SinglePost";
 import CreateShow from "./components/Create/CreateShow";
 import UpdateShow from "./components/Update/UpdateShow";
 import CreateSwapMeet from "./components/Create/CreateSwapMeet";
+import UpdateSwapMeet from "./components/Update/UpdateSwapMeet";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
       {
         path: "/swapMeets/create",
         element: <CreateSwapMeet />,
+      },
+      {
+        path: "/swapMeets/:swapMeetId/update",
+        element: <UpdateSwapMeet />,
       },
       {
         path: "/posts",

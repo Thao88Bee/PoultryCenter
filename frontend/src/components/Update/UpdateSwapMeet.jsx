@@ -1,14 +1,14 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getOneShowThunk, updateShowThunk } from "../../store/show";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { getOneSwapMeetThunk, updateSwapMeetThunk } from "../../store/swapMeet";
 import Footer from "../Footer";
 import "./Update.css";
 
-function UpdateShow() {
+function UpdateSwapMeet() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { showId } = useParams();
+  const { swapMeetId } = useParams();
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
@@ -17,28 +17,28 @@ function UpdateShow() {
   const [state, setState] = useState("");
   const [image, setImage] = useState("");
 
-  const show = useSelector((state) => state.show?.Show);
+  const swapMeet = useSelector((state) => state.swap.Swap);
 
   useEffect(() => {
-    dispatch(getOneShowThunk(showId));
-  }, [dispatch, showId]);
+    dispatch(getOneSwapMeetThunk(swapMeetId));
+  }, [dispatch, swapMeetId]);
 
   useEffect(() => {
-    if (show) {
-      setName(show?.name ? show?.name : "");
-      setDate(show?.date ? show?.date : "");
-      setDescription(show?.description ? show?.description : "");
-      setAddress(show?.address ? show?.address : "");
-      setCity(show?.city ? show?.city : "");
-      setState(show?.state ? show?.state : "");
-      setImage(show?.image ? show?.image : "");
+    if (swapMeet) {
+      setName(swapMeet?.name ? swapMeet?.name : "");
+      setDate(swapMeet?.date ? swapMeet?.date : "");
+      setDescription(swapMeet?.description ? swapMeet?.description : "");
+      setAddress(swapMeet?.address ? swapMeet?.address : "");
+      setCity(swapMeet?.city ? swapMeet?.city : "");
+      setState(swapMeet?.state ? swapMeet?.state : "");
+      setImage(swapMeet?.image ? swapMeet?.image : "");
     }
-  }, [show]);
+  }, [swapMeet]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const updatedSpot = {
+    const updatedSwapMeet = {
       name,
       date,
       description,
@@ -48,7 +48,7 @@ function UpdateShow() {
       image,
     };
 
-    await dispatch(updateShowThunk(updatedSpot, showId));
+    await dispatch(updateSwapMeetThunk(updatedSwapMeet, swapMeetId));
 
     setName("");
     setDate("");
@@ -58,13 +58,13 @@ function UpdateShow() {
     setState("");
     setImage("");
 
-    navigate(`/shows/${showId}`);
+    navigate(`/swapMeets/${swapMeetId}`);
   };
 
   return (
     <>
       <div className="update">
-        <h2 className="updateTitle">Edit your Show</h2>
+        <h2 className="updateTitle">Edit your Swap Meet</h2>
         <form className="updateForm" action="">
           <div className="updateSec">
             <label className="updateLabel" htmlFor="">
@@ -144,7 +144,7 @@ function UpdateShow() {
           </div>
           <div className="updateBtnSec">
             <button className="updateBtn" onClick={onSubmit}>
-              Update Show
+              Update Swap Meet
             </button>
           </div>
         </form>
@@ -154,4 +154,4 @@ function UpdateShow() {
   );
 }
 
-export default UpdateShow;
+export default UpdateSwapMeet;

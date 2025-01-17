@@ -1,0 +1,59 @@
+.create {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+}
+
+.createTitle {
+  color: rgb(59, 59, 59);
+}
+
+.createSec {
+  display: grid;
+  gap: 5px;
+}
+
+.createLabel {
+  color: rgb(59, 59, 59);
+  font-size: 18px;
+}
+
+.createInput {
+  height: 25px;
+  border: 2px solid rgb(59, 59, 59);
+  border-radius: 5px;
+}
+
+.createBigInput {
+  border-radius: 5px;
+  border: 2px solid rgb(59, 59, 59);
+  width: 350px;
+  height: 200px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-block: 10px;
+}
+
+.createBtnSec {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.createBtn {
+  width: 125px;
+  height: 25px;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(112, 112, 112);
+  border-radius: 5px;
+  color: white;
+}
+
+.createBtn:hover {
+  background-color: rgb(179, 160, 107);
+  color: black;
+}
