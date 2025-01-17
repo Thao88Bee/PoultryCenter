@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const GET_ALL_SWAP_MEETS = "swapMeet/getAllSwapMeets";
 const GET_ONE_SWAP_MEET = "swapMeet/getOneSwapMeet";
 const GET_USER_SWAP_MEETS = "swapMeet/getUserSwapMeets";
+const CREATE_SWAP_MEET = "swapMeet/createSwapMeet";
 
 export const getAllSwapMeetsAction = (swapMeets) => {
   return {
@@ -22,6 +23,13 @@ export const getUserSwapMeetsAction = (swapMeets) => {
   return {
     type: GET_USER_SWAP_MEETS,
     payload: swapMeets,
+  };
+};
+
+export const createSwapMeetAction = (swapMeet) => {
+  return {
+    type: CREATE_SWAP_MEET,
+    payload: swapMeet,
   };
 };
 
@@ -64,6 +72,25 @@ export const getUserSwapMeetsThunk = () => async (dispatch) => {
   }
 };
 
+export const createSwapMeetThunk = (newSwapMeet) => async (dispatch) => {
+  const res = await csrfFetch("/api/swapMeets", {
+    method: "POST",
+    headers: {
+      "Context-type": "application/json",
+    },
+    body: JSON.stringify(newSwapMeet),
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(createSwapMeetAction(data));
+    return data;
+  } else {
+    const err = await res.json();
+    throw err;
+  }
+};
+
 const initialState = {
   Swaps: [],
   Swap: {},
@@ -77,6 +104,8 @@ const swapMeetReducer = (state = initialState, action) => {
       return { ...state, Swap: action.payload };
     case GET_USER_SWAP_MEETS:
       return { ...state, Swaps: action.payload.Swaps };
+    case CREATE_SWAP_MEET:
+      return { ...state, Swap: action.payload };
     default:
       return state;
   }

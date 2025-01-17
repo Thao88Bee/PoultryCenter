@@ -16,7 +16,7 @@ function ProfilePage() {
         </NavLink>
         <UserShows />
         <h2>User Swap Meets</h2>
-        <NavLink className="userProfileLink" to={"/shows/create"}>
+        <NavLink className="userProfileLink" to={"/swapMeets/create"}>
           Create New Swap Meet
         </NavLink>
         <UserSwapMeets />
