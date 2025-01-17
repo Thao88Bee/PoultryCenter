@@ -20,13 +20,7 @@ router.get("/reviews", requireAuth, async (req, res, next) => {
     ],
   });
 
-  if (userReviews.length) {
-    res.json({ Reviews: userReviews });
-  } else {
-    res.status(404).json({
-      message: "User do not have any Reviews.",
-    });
-  }
+  return res.json({ Reviews: userReviews });
 });
 
 // Get all Posts owned by the Current User
@@ -57,13 +51,7 @@ router.get("/posts", requireAuth, async (req, res, next) => {
     group: ["Post.id"],
   });
 
-  if (userPosts.length) {
-    res.json({ Posts: userPosts });
-  } else {
-    res.status(404).json({
-      message: "User do not have any Posts.",
-    });
-  }
+  return res.json({ Posts: userPosts });
 });
 
 // Get all Swap Meets owned by the Current User
@@ -75,13 +63,7 @@ router.get("/swapMeets", requireAuth, async (req, res, next) => {
     },
   });
 
-  if (userSwapMeets.length) {
-    res.json({ Swaps: userSwapMeets });
-  } else {
-    res.status(404).json({
-      message: "User do not have any Swap Meets.",
-    });
-  }
+  return res.json({ Swaps: userSwapMeets });
 });
 
 // Get all Shows owned by the Current User
@@ -93,13 +75,7 @@ router.get("/shows", requireAuth, async (req, res, next) => {
     },
   });
 
-  if (userShows.length) {
-    res.json({ Shows: userShows });
-  } else {
-    res.status(404).json({
-      message: "User do not have any Shows.",
-    });
-  }
+  return res.json({ Shows: userShows });
 });
 
 module.exports = router;

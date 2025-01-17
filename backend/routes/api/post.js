@@ -42,13 +42,7 @@ router.get("/:postId/reviews", async (req, res, next) => {
       ],
     });
 
-    if (postReviews.length) {
-      return res.json({ Reviews: postReviews });
-    } else {
-      return res.status(404).json({
-        message: "Post has no review",
-      });
-    }
+    return res.json({ Reviews: postReviews });
   } else {
     return res.status(404).json({
       message: "Post couldn't be found",
@@ -132,13 +126,7 @@ router.get("/", async (req, res, next) => {
     group: ["Post.id", "Owner.id"],
   });
 
-  if (posts.length) {
-    return res.json({ Posts: posts });
-  } else {
-    return res.status(404).json({
-      message: "There are no Posts at this moment",
-    });
-  }
+  return res.json({ Posts: posts });
 });
 
 // Create a Review for a Post based on the Post's id

@@ -27,7 +27,7 @@ router.patch(
     const { review, starRating } = req.body;
 
     if (!editReview) {
-      res.status(404).json({
+      return res.status(404).json({
         message: "Review couldn't be found",
       });
     }
@@ -42,7 +42,7 @@ router.patch(
       review,
       starRating,
     });
-    res.json(editReview)
+    return res.json(editReview);
   }
 );
 
@@ -53,19 +53,19 @@ router.delete("/:reviewId", requireAuth, async (req, res, next) => {
   const review = await Review.findByPk(reviewId);
 
   if (!review) {
-    res.status(404).json({
+    return res.status(404).json({
       message: "Review couldn't be found",
     });
   }
 
   if (review.ownerId !== userId) {
-    res.status(403).json({
+    return res.status(403).json({
       message: "Forbidden",
     });
   }
 
   await review.destroy();
-  res.json({
+  return res.json({
     message: "Successfully delete",
   });
 });

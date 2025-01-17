@@ -55,13 +55,7 @@ router.get("/", async (req, res, next) => {
     ],
   });
 
-  if (shows.length) {
-    return res.json({ Shows: shows });
-  } else {
-    return res.status(404).json({
-      message: "There are no Shows at this moment",
-    });
-  }
+  return res.json({ Shows: shows });
 });
 
 // Create a Show

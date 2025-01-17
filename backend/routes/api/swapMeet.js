@@ -50,18 +50,12 @@ router.get("/", async (req, res, next) => {
       {
         model: User,
         as: "Owner",
-        attributes: ["id", "firstName", "lastName", "email"]
-      }
-    ]
+        attributes: ["id", "firstName", "lastName", "email"],
+      },
+    ],
   });
 
-  if (swapMeets.length) {
-    return res.json({ Swaps: swapMeets });
-  } else {
-    return res.status(404).json({
-      message: "There are no Swap Meets at this moment",
-    });
-  }
+  return res.json({ Swaps: swapMeets });
 });
 
 // Create a Swap Meet
@@ -84,35 +78,40 @@ router.post("/", requireAuth, validateSwapMeet, async (req, res, next) => {
 });
 
 // Edit a Swap Meet
-router.patch("/:swapMeetId", requireAuth, validateSwapMeet, async (req, res, next) => {
-  const userId = parseInt(req.user.id);
-  const swapMeetId = parseInt(req.params.swapMeetId);
-  const editSwapMeet = await SwapMeet.findByPk(swapMeetId);
-  const { name, date, description, address, city, state, image } = req.body;
+router.patch(
+  "/:swapMeetId",
+  requireAuth,
+  validateSwapMeet,
+  async (req, res, next) => {
+    const userId = parseInt(req.user.id);
+    const swapMeetId = parseInt(req.params.swapMeetId);
+    const editSwapMeet = await SwapMeet.findByPk(swapMeetId);
+    const { name, date, description, address, city, state, image } = req.body;
 
-  if (!editSwapMeet) {
-    return res.status(404).json({
-      message: "Show couldn't be found",
+    if (!editSwapMeet) {
+      return res.status(404).json({
+        message: "Show couldn't be found",
+      });
+    }
+
+    if (editSwapMeet.ownerId !== userId) {
+      return res.status(403).json({
+        message: "Forbidden",
+      });
+    }
+
+    await editSwapMeet.update({
+      name,
+      date,
+      description,
+      address,
+      city,
+      state,
+      image,
     });
+    return res.json(editSwapMeet);
   }
-
-  if (editSwapMeet.ownerId !== userId) {
-    return res.status(403).json({
-      message: "Forbidden",
-    });
-  }
-
-  await editSwapMeet.update({
-    name,
-    date,
-    description,
-    address,
-    city,
-    state,
-    image,
-  });
-  return res.json(editSwapMeet);
-});
+);
 
 // Delete a Swap Meet
 router.delete("/:swapMeetId", requireAuth, async (req, res, next) => {
