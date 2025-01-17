@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { getUserShowsThunk } from "../../store/show";
 import { NavLink, useNavigate } from "react-router-dom";
 import DeleteModalButton from "../Delete/DeleteModalButton";
-import "./UserShows.css";
 import DeleteShow from "../Delete/DeleteShow";
+import "./UserShows.css";
 
 function UserShows() {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function UserShows() {
     dispatch(getUserShowsThunk());
   }, [dispatch, showDelete, sortedUserShows.length]);
 
-  const goEditShow = (e, showId) => {
+  const goToEditShow = (e, showId) => {
     e.preventDefault();
     navigate(`/shows/${showId}/update`);
   };
@@ -52,7 +52,7 @@ function UserShows() {
             />
             <button
               className="userShowsEditBtn"
-              onClick={(e) => goEditShow(e, id)}
+              onClick={(e) => goToEditShow(e, id)}
             >
               Edit
             </button>

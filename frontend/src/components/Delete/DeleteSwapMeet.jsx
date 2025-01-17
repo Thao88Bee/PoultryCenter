@@ -1,15 +1,15 @@
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { deleteShowThunk } from "../../store/show";
+import { deleteSwapMeetThunk } from "../../store/swapMeet";
 import "./Delete.css";
 
-function DeleteShow({ showId, setShowDelete }) {
+function DeleteSwapMeet({ swapMeetId, setShowDelete }) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    await dispatch(deleteShowThunk(showId));
+    await dispatch(deleteSwapMeetThunk(swapMeetId));
     setShowDelete((prev) => !prev);
     closeModal();
   };
@@ -18,7 +18,7 @@ function DeleteShow({ showId, setShowDelete }) {
     <>
       <div className="deleteShowModal">
         <h2 className="deleteShowModalheader">
-          Do you really want to delelte this Show?
+          Do you really want to delelte this Swap Meet?
         </h2>
         <section className="deleteShowModalBtnSec">
           <button className="deleteShowModalBtn" onClick={handleDelete}>
@@ -39,4 +39,4 @@ function DeleteShow({ showId, setShowDelete }) {
   );
 }
 
-export default DeleteShow;
+export default DeleteSwapMeet;

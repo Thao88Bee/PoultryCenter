@@ -5,6 +5,7 @@ const GET_ONE_SWAP_MEET = "swapMeet/getOneSwapMeet";
 const GET_USER_SWAP_MEETS = "swapMeet/getUserSwapMeets";
 const CREATE_SWAP_MEET = "swapMeet/createSwapMeet";
 const UPDATE_SWAMP_MEET = "swapMeet/updateSwapMeet";
+const DELETE_SWAP_MEET = "swapMeet/deleteSwapMeet";
 
 export const getAllSwapMeetsAction = (swapMeets) => {
   return {
@@ -38,6 +39,13 @@ export const updateSwapMeetAction = (swapMeet) => {
   return {
     type: UPDATE_SWAMP_MEET,
     payload: swapMeet,
+  };
+};
+
+export const deleteSwapMeetAction = (swapMeetId) => {
+  return {
+    type: DELETE_SWAP_MEET,
+    payload: swapMeetId,
   };
 };
 
@@ -119,6 +127,20 @@ export const updateSwapMeetThunk =
     }
   };
 
+export const deleteSwapMeetThunk = (swapMeetId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/swapMeets/${swapMeetId}`, {
+    method: "DELETE",
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(deleteSwapMeetAction(data));
+  } else {
+    const err = await res.json();
+    throw err;
+  }
+};
+
 const initialState = {
   Swaps: [],
   Swap: {},
@@ -135,6 +157,8 @@ const swapMeetReducer = (state = initialState, action) => {
     case CREATE_SWAP_MEET:
       return { ...state, Swap: action.payload };
     case UPDATE_SWAMP_MEET:
+      return { ...state, Swap: action.payload };
+    case DELETE_SWAP_MEET:
       return { ...state, Swap: action.payload };
     default:
       return state;

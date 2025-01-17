@@ -1,12 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { getUserSwapMeetsThunk } from "../../store/swapMeet";
+import DeleteModalButton from "../Delete/DeleteModalButton";
+import DeleteSwapMeet from "../Delete/DeleteSwapMeet";
 import "./UserSwapMeets.css";
 
 function UserSwapMeets() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [showDelete, setShowDelete] = useState();
+
   const userSwapMeets = useSelector((state) => state.swap.Swaps);
 
   const sortedUserSwapMeets = userSwapMeets?.sort((a, b) =>
@@ -15,7 +19,7 @@ function UserSwapMeets() {
 
   useEffect(() => {
     dispatch(getUserSwapMeetsThunk());
-  }, [dispatch]);
+  }, [dispatch, showDelete, sortedUserSwapMeets.length]);
 
   const goToEditSwapMeet = (e, swapMeetId) => {
     e.preventDefault();
@@ -42,7 +46,12 @@ function UserSwapMeets() {
             </p>
           </div>
           <div className="userSwapMeetsBtn">
-            <button className="userSwapMeetsDeleteBtn">Delete</button>
+            <DeleteModalButton
+              buttonText="Delete"
+              modalComponent={
+                <DeleteSwapMeet swapMeetId={id} setShowDelete={setShowDelete} />
+              }
+            />
             <button
               className="userSwapMeetsEditBtn"
               onClick={(e) => goToEditSwapMeet(e, id)}
