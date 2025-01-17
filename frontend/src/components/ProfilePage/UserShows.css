@@ -29,22 +29,12 @@
   gap: 10px;
 }
 
-.userShowsDeleteBtn,
 .userShowsEditBtn {
   width: 100px;
   padding: 4px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.userShowsDeleteBtn {
-  background-color: rgb(179, 160, 107);
-}
-
-.userShowsDeleteBtn:hover {
-  background-color: rgb(59, 59, 59);
-  color: white;
 }
 
 .userShowsEditBtn {

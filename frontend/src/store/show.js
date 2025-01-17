@@ -5,6 +5,7 @@ const GET_ONE_SHOW = "show/getOneShow";
 const GET_USER_SHOWS = "show/getUserShows";
 const CREATE_SHOW = "show/createShow";
 const UPDATE_SHOW = "show/updateShow";
+const DELETE_SHOW = "show/dleteShow";
 
 export const getAllShowsAction = (shows) => {
   return {
@@ -38,6 +39,13 @@ export const updateShowAction = (show) => {
   return {
     type: UPDATE_SHOW,
     payload: show,
+  };
+};
+
+export const deleteShowAction = (showId) => {
+  return {
+    type: DELETE_SHOW,
+    payload: showId,
   };
 };
 
@@ -118,6 +126,20 @@ export const updateShowThunk = (updatedShow, showId) => async (dispatch) => {
   }
 };
 
+export const deleteShowThunk = (showId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/shows/${showId}`, {
+    method: "DELETE",
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(deleteShowAction(data));
+  } else {
+    const err = await res.json();
+    throw err;
+  }
+};
+
 const initialState = {
   Shows: [],
   Show: {},
@@ -134,6 +156,8 @@ const showReducer = (state = initialState, action) => {
     case CREATE_SHOW:
       return { ...state, Show: action.payload };
     case UPDATE_SHOW:
+      return { ...state, Show: action.payload };
+    case DELETE_SHOW:
       return { ...state, Show: action.payload };
     default:
       return state;

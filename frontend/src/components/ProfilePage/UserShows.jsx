@@ -1,23 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getUserShowsThunk } from "../../store/show";
 import { NavLink, useNavigate } from "react-router-dom";
+import DeleteModalButton from "../Delete/DeleteModalButton";
 import "./UserShows.css";
+import DeleteShow from "../Delete/DeleteShow";
 
 function UserShows() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [showDelete, setShowDelete] = useState();
+
   const userShows = useSelector((state) => state.show.Shows);
 
   const sortedUserShows = userShows?.sort((a, b) => (a.date > b.date ? 0 : -1));
 
   useEffect(() => {
     dispatch(getUserShowsThunk());
-  }, [dispatch]);
+  }, [dispatch, showDelete, sortedUserShows.length]);
 
   const goEditShow = (e, showId) => {
     e.preventDefault();
-    navigate(`/shows/${showId}/update`)
+    navigate(`/shows/${showId}/update`);
   };
 
   return (
@@ -40,7 +44,12 @@ function UserShows() {
             </p>
           </div>
           <div className="userShowsBtn">
-            <button className="userShowsDeleteBtn">Delete</button>
+            <DeleteModalButton
+              buttonText="Delete"
+              modalComponent={
+                <DeleteShow showId={id} setShowDelete={setShowDelete} />
+              }
+            />
             <button
               className="userShowsEditBtn"
               onClick={(e) => goEditShow(e, id)}

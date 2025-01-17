@@ -1,0 +1,43 @@
+.deleteShowModal {
+  margin: 50px;
+  display: grid;
+  justify-items: center;
+  gap: 30px;
+}
+
+.deleteShowModalHeader {
+  color: rgb(59, 59, 59);
+}
+
+.deleteShowModalBtnSec {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  gap: 80px;
+}
+
+.deleteShowModalBtn,
+.cancelShowModalBtn {
+  width: 100px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.deleteShowModalBtn {
+  background-color: rgb(255, 122, 122);
+}
+
+.deleteShowModalBtn:hover {
+  background-color: red;
+  color: white;
+}
+
+.cancelShowModalBtn {
+  background-color: rgb(161, 161, 161);
+}
+
+.cancelShowModalBtn:hover {
+  background-color: black;
+  color: white;
+}
