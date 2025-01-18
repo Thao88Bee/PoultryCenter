@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createReviewThunk, getPostReviewThunk } from "../../store/review";
 import "./ReviewModal.css";
 
-function CreateReview() {
+function CreateReview({ setRefresh }) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const [error, setError] = useState(null);
@@ -79,7 +79,7 @@ function CreateReview() {
         <button
           className="reviewModalBtn"
           disabled={disabled}
-          onClick={() => (onSubmit(), setReload(true))}
+          onClick={() => (onSubmit(), setReload(true), setRefresh((prev) => !prev))}
         >
           Submit Your Review
         </button>

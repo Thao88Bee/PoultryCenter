@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getOnePostThunk } from "../../store/post";
 import Review from "../Review";
 import Footer from "../Footer";
@@ -11,12 +11,13 @@ import CreateReview from "../Create/CreateReview";
 function SinglePost() {
   const dispatch = useDispatch();
   const { postId } = useParams();
+  const [refresh, setRefresh] = useState(false);
 
   const post = useSelector((state) => state.post.Post);
 
   useEffect(() => {
     dispatch(getOnePostThunk(postId));
-  }, [dispatch, postId]);
+  }, [dispatch, postId, refresh]);
 
   const imageClass = !post.image ? "none" : "singlePostImg";
 
@@ -46,7 +47,7 @@ function SinglePost() {
             </span>
             <AddModalButton
               buttonText="Add a Review"
-              modalComponent={<CreateReview />}
+              modalComponent={<CreateReview setRefresh={setRefresh} />}
             />
           </div>
           <Review postId={postId} />
