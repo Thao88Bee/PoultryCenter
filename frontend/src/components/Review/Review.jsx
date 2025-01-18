@@ -32,7 +32,7 @@ function Review({ postId }) {
             </p>
           </div>
           <p>{review}</p>
-          {user.id === Owner?.id ? (<div className="reviewBtnSec">
+          {user?.id === Owner?.id ? (<div className="reviewBtnSec">
             <button className="reviewDeleteBtn">Delete</button>
             <AddModalButton
               buttonText="Edit"
