@@ -27,6 +27,9 @@ function CreateShow() {
     if (!date) {
       errors.date = "Please enter a Date";
     }
+    if (new Date(date) < new Date()) {
+      errors.date = "Date can't be in the past"
+    }
     if (!description.length) {
       errors.description = "Description is needed";
     }
