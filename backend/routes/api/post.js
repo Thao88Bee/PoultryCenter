@@ -130,7 +130,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // Create a Review for a Post based on the Post's id
-router.patch(
+router.post(
   "/:postId/reviews",
   requireAuth,
   validateReview,

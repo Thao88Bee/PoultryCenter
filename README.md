@@ -1294,7 +1294,7 @@ Create and return a new review for a post specified by id.
 - Require Authentication: true
 - Request
 
-  - Method: PATCH
+  - Method: POST
   - Route path: /posts/:postId/reviews
   - Headers:
     - Content-Type: application/json

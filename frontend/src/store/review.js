@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const GET_POST_REVIEWS = "review/getPostReviews";
 const GET_USER_REVIEWS = "review/getUserReviews";
 const CREATE_REVIEW = "review/createReview";
+const UPDATED_REVIEW = "review/updateReview";
 
 export const getPostReviewsAction = (reviews) => {
   return {
@@ -21,6 +22,13 @@ export const getUserReviewsAction = (reviews) => {
 export const createReviewAction = (review) => {
   return {
     type: CREATE_REVIEW,
+    payload: review,
+  };
+};
+
+export const updateReviewAction = (review) => {
+  return {
+    type: UPDATED_REVIEW,
     payload: review,
   };
 };
@@ -53,7 +61,7 @@ export const getUserReviewsThunk = () => async (dispatch) => {
 
 export const createReviewThunk = (newReview, postId) => async (dispatch) => {
   const res = await csrfFetch(`/api/posts/${postId}/reviews`, {
-    method: "PATCH",
+    method: "POST",
     headers: {
       "Context-type": "application/json",
     },
