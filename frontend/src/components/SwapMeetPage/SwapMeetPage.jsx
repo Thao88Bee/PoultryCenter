@@ -23,21 +23,21 @@ function SwapMeetPage() {
         </section>
         <section className="swapMeetInfoSec">
           {swapMeets.map(({ id, name, date }) => (
-            <div className="swapMeetInfo" key={id}>
-              <NavLink className="swapMeetName" to={`/swapMeets/${id}`}>
+            <NavLink className="swapMeetNameDate" to={`/swapMeets/${id}`}>
+              <div className="swapMeetInfo" key={id}>
                 {name}
-              </NavLink>
-              <p>
-                <span>
-                  {new Date(date).toLocaleString("default", {
-                    month: "long",
-                  })}
-                </span>{" "}
-                <span>{new Date(date).getDate()}</span>
-                {", "}
-                <span>{new Date(date).getFullYear()}</span>
-              </p>
-            </div>
+                <p>
+                  <span>
+                    {new Date(date).toLocaleString("default", {
+                      month: "long",
+                    })}
+                  </span>{" "}
+                  <span>{new Date(date).getDate()}</span>
+                  {", "}
+                  <span>{new Date(date).getFullYear()}</span>
+                </p>
+              </div>
+            </NavLink>
           ))}
         </section>
       </div>

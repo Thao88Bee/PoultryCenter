@@ -23,15 +23,15 @@ function PostPage() {
         </section>
         <section className="postInfoSec">
           {posts.map(({ id, name, avgRating }) => (
+              <NavLink className="postNameStar" to={`/posts/${id}`}>
             <div className="postInfo" key={id}>
-              <NavLink className="postName" to={`/posts/${id}`}>
-                {name}
-              </NavLink>
+                <p>{name}</p>
               <p>
                 {avgRating ? avgRating : "No review"}
                 {avgRating ? <span className="star"> ★</span> : ""}
               </p>
             </div>
+              </NavLink>
           ))}
         </section>
       </div>

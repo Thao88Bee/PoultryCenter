@@ -24,21 +24,21 @@ function ShowPage() {
 
         <section className="showInfoSec">
           {shows?.map(({ id, name, date }) => (
-            <div className="showInfo" key={id}>
-              <NavLink className="showName" to={`/shows/${id}`}>
+            <NavLink className="showNameDate" to={`/shows/${id}`}>
+              <div className="showInfo" key={id}>
                 {name}
-              </NavLink>
-              <p>
-                <span>
-                  {new Date(date).toLocaleString("default", {
-                    month: "long",
-                  })}
-                </span>{" "}
-                <span>{new Date(date).getDate()}</span>
-                {", "}
-                <span>{new Date(date).getFullYear()}</span>
-              </p>
-            </div>
+                <p>
+                  <span>
+                    {new Date(date).toLocaleString("default", {
+                      month: "long",
+                    })}
+                  </span>{" "}
+                  <span>{new Date(date).getDate()}</span>
+                  {", "}
+                  <span>{new Date(date).getFullYear()}</span>
+                </p>
+              </div>
+            </NavLink>
           ))}
         </section>
       </div>

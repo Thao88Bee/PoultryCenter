@@ -24,11 +24,11 @@
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  background-color: rgb(197, 197, 197);
-  border-radius: 10px;
+  background-color: rgb(145, 145, 145);
+  border-radius: 8px;
 }
 
-.showName {
+.showNameDate {
   font-size: clamp(15px, 2vw, 20px);
   text-decoration: none;
   color: black;
@@ -38,8 +38,8 @@
   font-size: clamp(15px, 2vw, 20px);
 }
 
-.showName:hover {
-  color: red;
+.showNameDate:hover {
+  color: rgb(255, 255, 255);
 }
 
 @media screen and (max-width: 700px) {

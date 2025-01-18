@@ -24,11 +24,11 @@
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  background-color: rgb(197, 197, 197);
+  background-color: rgb(145, 145, 145);
   border-radius: 10px;
 }
 
-.postName {
+.postNameStar {
   font-size: clamp(15px, 2vw, 20px);
   text-decoration: none;
   color: black;
@@ -38,8 +38,8 @@
   font-size: clamp(15px, 2vw, 20px);
 }
 
-.postName:hover {
-  color: red;
+.postNameStar:hover {
+  color: rgb(255, 255, 255);
 }
 
 .star {
