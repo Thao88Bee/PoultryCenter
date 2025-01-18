@@ -1,17 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getPostReviewThunk } from "../../store/review";
 import "./Review.css";
+import AddModalButton from "../Create/AddModalButton";
+import UpdateReview from "../Update/updateReview";
+import { getOnePostThunk } from "../../store/post";
 
 function Review({ postId }) {
   const dispatch = useDispatch();
+  const [refresh, setRefresh] = useState();
 
+  const user = useSelector((state) => state.session.User);
   const postReviews = useSelector((state) => state.review.Reviews);
   postReviews?.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 0));
 
   useEffect(() => {
     dispatch(getPostReviewThunk(postId));
-  }, [dispatch, postId]);
+    dispatch(getOnePostThunk(postId));
+  }, [dispatch, postId, refresh]);
 
   return (
     <>
@@ -26,10 +32,15 @@ function Review({ postId }) {
             </p>
           </div>
           <p>{review}</p>
-          <div className="reviewBtnSec">
+          {user.id === Owner?.id ? (<div className="reviewBtnSec">
             <button className="reviewDeleteBtn">Delete</button>
-            <button className="reviewEditBtn">Edit</button>
-          </div>
+            <AddModalButton
+              buttonText="Edit"
+              modalComponent={
+                <UpdateReview reviewId={id} setRefresh={setRefresh} />
+              }
+            />
+          </div>) : ("")}
         </div>
       ))}
     </>

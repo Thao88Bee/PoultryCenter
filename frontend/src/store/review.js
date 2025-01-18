@@ -78,6 +78,25 @@ export const createReviewThunk = (newReview, postId) => async (dispatch) => {
   }
 };
 
+export const updateReviewThunk = (updatedReview, reviewId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+    method: "PATCH",
+    headers: {
+      "Context-type": "application/json",
+    },
+    body: JSON.stringify(updatedReview),
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(updateReviewAction(data));
+    return data;
+  } else {
+    const err = await res.json();
+    throw err;
+  }
+};
+
 const initialState = {
   Reviews: [],
   Review: {},
@@ -90,6 +109,8 @@ const reviewReducer = (state = initialState, action) => {
     case GET_USER_REVIEWS:
       return { ...state, Reviews: action.payload.Reviews };
     case CREATE_REVIEW:
+      return { ...state, Review: action.payload };
+    case UPDATED_REVIEW:
       return { ...state, Review: action.payload };
     default:
       return state;
