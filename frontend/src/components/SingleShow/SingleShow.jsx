@@ -8,6 +8,7 @@ import "./SingleShow.css";
 function SingleShow() {
   const dispatch = useDispatch();
   const { showId } = useParams();
+
   const show = useSelector((state) => state.show.Show);
 
   useEffect(() => {

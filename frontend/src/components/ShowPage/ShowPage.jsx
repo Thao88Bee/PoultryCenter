@@ -7,9 +7,9 @@ import "./ShowPage.css";
 
 function ShowPage() {
   const dispatch = useDispatch();
-  const shows = useSelector((state) => state.show.Shows);
 
-  const sortedShows = shows?.sort((a, b) => (a.date > b.date ? 0 : -1));
+  const shows = useSelector((state) => state.show.Shows);
+  shows?.sort((a, b) => (a.date > b.date ? 0 : -1));
 
   useEffect(() => {
     dispatch(getAllShowsThunk());
@@ -23,7 +23,7 @@ function ShowPage() {
         </section>
 
         <section className="showInfoSec">
-          {sortedShows?.map(({ id, name, date }) => (
+          {shows?.map(({ id, name, date }) => (
             <div className="showInfo" key={id}>
               <NavLink className="showName" to={`/shows/${id}`}>
                 {name}

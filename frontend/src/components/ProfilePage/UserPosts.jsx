@@ -6,7 +6,9 @@ import "./UserPosts.css";
 
 function UserPosts() {
   const dispatch = useDispatch();
+
   const userPosts = useSelector((state) => state.post.Posts);
+  userPosts?.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 0));
 
   useEffect(() => {
     dispatch(getUserPostsThunk());
@@ -16,7 +18,7 @@ function UserPosts() {
     <>
       {userPosts.map(({ id, name, description, avgRating, image }) => (
         <div className="userPosts" key={id}>
-          <img className={ image ? "userPostsImg" : "" } src={image} alt="" />
+          <img className={image ? "userPostsImg" : ""} src={image} alt="" />
           <div className="userPostsInfo">
             <NavLink className="userPostsLink" to={`/posts/${id}`}>
               {name}

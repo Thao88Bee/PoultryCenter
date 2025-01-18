@@ -7,9 +7,9 @@ import "./SwapMeetPage.css";
 
 function SwapMeetPage() {
   const dispatch = useDispatch();
-  const swapMeets = useSelector((state) => state.swap.Swaps);
 
-  const sortedSwapMeets = swapMeets?.sort((a, b) => (a.date > b.date ? 0 : -1));
+  const swapMeets = useSelector((state) => state.swap.Swaps);
+  swapMeets?.sort((a, b) => (a.date > b.date ? 0 : -1));
 
   useEffect(() => {
     dispatch(getAllSwapMeetsThunk());
@@ -21,9 +21,8 @@ function SwapMeetPage() {
         <section className="swapMeetHeaderSec">
           <h1>Swap Meets Page</h1>
         </section>
-
         <section className="swapMeetInfoSec">
-          {sortedSwapMeets.map(({ id, name, date }) => (
+          {swapMeets.map(({ id, name, date }) => (
             <div className="swapMeetInfo" key={id}>
               <NavLink className="swapMeetName" to={`/swapMeets/${id}`}>
                 {name}

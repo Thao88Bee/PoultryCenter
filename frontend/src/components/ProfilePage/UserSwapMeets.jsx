@@ -12,14 +12,11 @@ function UserSwapMeets() {
   const [showDelete, setShowDelete] = useState();
 
   const userSwapMeets = useSelector((state) => state.swap.Swaps);
-
-  const sortedUserSwapMeets = userSwapMeets?.sort((a, b) =>
-    a.date > b.date ? 0 : -1
-  );
+  userSwapMeets?.sort((a, b) => (a.date > b.date ? 0 : -1));
 
   useEffect(() => {
     dispatch(getUserSwapMeetsThunk());
-  }, [dispatch, showDelete, sortedUserSwapMeets.length]);
+  }, [dispatch, showDelete, userSwapMeets.length]);
 
   const goToEditSwapMeet = (e, swapMeetId) => {
     e.preventDefault();
@@ -28,7 +25,7 @@ function UserSwapMeets() {
 
   return (
     <>
-      {sortedUserSwapMeets.map(({ id, name, date }) => (
+      {userSwapMeets.map(({ id, name, date }) => (
         <div className="userSwapMeets" key={id}>
           <div className="userSwapMeetsInfo">
             <NavLink className="userSwapMeetsLink" to={`/swapMeets/${id}`}>

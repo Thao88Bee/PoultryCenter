@@ -9,6 +9,7 @@ import "./SinglePost.css";
 function SinglePost() {
   const dispatch = useDispatch();
   const { postId } = useParams();
+
   const post = useSelector((state) => state.post.Post);
 
   useEffect(() => {

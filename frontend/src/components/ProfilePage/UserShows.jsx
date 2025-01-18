@@ -12,12 +12,11 @@ function UserShows() {
   const [showDelete, setShowDelete] = useState();
 
   const userShows = useSelector((state) => state.show.Shows);
-
-  const sortedUserShows = userShows?.sort((a, b) => (a.date > b.date ? 0 : -1));
+  userShows?.sort((a, b) => (a.date > b.date ? 0 : -1));
 
   useEffect(() => {
     dispatch(getUserShowsThunk());
-  }, [dispatch, showDelete, sortedUserShows.length]);
+  }, [dispatch, showDelete, userShows.length]);
 
   const goToEditShow = (e, showId) => {
     e.preventDefault();
@@ -26,7 +25,7 @@ function UserShows() {
 
   return (
     <>
-      {sortedUserShows.map(({ id, name, date }) => (
+      {userShows.map(({ id, name, date }) => (
         <div className="userShows" key={id}>
           <div className="userShowsInfo">
             <NavLink className="userShowsLink" to={`/shows/${id}`}>

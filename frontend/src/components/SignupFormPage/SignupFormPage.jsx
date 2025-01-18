@@ -6,7 +6,6 @@ import "./SignupForm.css";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.User);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -14,6 +13,8 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
+
+  const sessionUser = useSelector((state) => state.session.User);
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
 

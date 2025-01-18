@@ -8,6 +8,7 @@ import "./SingleSwapMeet.css";
 function SingleSwapMeet() {
   const dispatch = useDispatch();
   const { swapMeetId } = useParams();
+
   const swapMeet = useSelector((state) => state.swap.Swap);
 
   useEffect(() => {

@@ -21,7 +21,7 @@ function ProfilePage() {
         </NavLink>
         <UserSwapMeets />
         <h2>User Posts</h2>
-        <NavLink className="userProfileLink" to={"/shows/create"}>
+        <NavLink className="userProfileLink" to={"/posts/create"}>
           Create New Post
         </NavLink>
         <UserPosts />

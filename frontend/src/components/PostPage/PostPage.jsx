@@ -7,11 +7,9 @@ import "./PostPage.css";
 
 function PostPage() {
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.post.Posts);
 
-  const sortedPosts = posts?.sort((a, b) =>
-    a.createdAt > b.createdAt ? -1 : 0
-  );
+  const posts = useSelector((state) => state.post.Posts);
+  posts?.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 0));
 
   useEffect(() => {
     dispatch(getAllPostsThunk());
@@ -23,9 +21,8 @@ function PostPage() {
         <section className="postHeaderSec">
           <h1>Posts Page</h1>
         </section>
-
         <section className="postInfoSec">
-          {sortedPosts.map(({ id, name, avgRating }) => (
+          {posts.map(({ id, name, avgRating }) => (
             <div className="postInfo" key={id}>
               <NavLink className="postName" to={`/posts/${id}`}>
                 {name}
