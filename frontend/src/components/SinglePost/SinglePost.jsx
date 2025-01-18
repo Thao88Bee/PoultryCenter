@@ -13,6 +13,7 @@ function SinglePost() {
   const { postId } = useParams();
   const [refresh, setRefresh] = useState(false);
 
+  const user = useSelector((state) => state.session.User);
   const post = useSelector((state) => state.post.Post);
 
   useEffect(() => {
@@ -45,10 +46,14 @@ function SinglePost() {
                 ? "Review"
                 : "Reviews"}
             </span>
-            <AddModalButton
-              buttonText="Add a Review"
-              modalComponent={<CreateReview setRefresh={setRefresh} />}
-            />
+            {user ? (
+              <AddModalButton
+                buttonText="Add a Review"
+                modalComponent={<CreateReview setRefresh={setRefresh} />}
+              />
+            ) : (
+              ""
+            )}
           </div>
           <Review postId={postId} />
         </div>
