@@ -176,7 +176,7 @@ router.patch("/:postId", requireAuth, validatePost, async (req, res, next) => {
   const userId = parseInt(req.user.id);
   const postId = parseInt(req.params.postId);
   const editPost = await Post.findByPk(postId);
-  const { name, description } = req.body;
+  const { name, description, image } = req.body;
 
   if (!editPost) {
     return res.status(404).json({
@@ -193,6 +193,7 @@ router.patch("/:postId", requireAuth, validatePost, async (req, res, next) => {
   await editPost.update({
     name,
     description,
+    image,
   });
   return res.json(editPost);
 });

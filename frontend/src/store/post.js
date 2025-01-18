@@ -4,6 +4,7 @@ const GET_ALL_POSTS = "post/getAllPosts";
 const GET_ONE_POST = "post/getOnePost";
 const GET_USER_POSTS = "post/getUserPosts";
 const CREATE_POST = "post/createPost";
+const UPDATE_POST = "post/updatePost";
 
 export const getAllPostsAction = (posts) => {
   return {
@@ -29,6 +30,13 @@ export const getUserPostsAction = (posts) => {
 export const createPostAction = (post) => {
   return {
     type: CREATE_POST,
+    payload: post,
+  };
+};
+
+export const updatePostAction = (post) => {
+  return {
+    type: UPDATE_POST,
     payload: post,
   };
 };
@@ -91,6 +99,25 @@ export const createPostThunk = (newPost) => async (dispatch) => {
   }
 };
 
+export const updatePostThunk = (updatedPost, postId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/posts/${postId}`, {
+    method: "PATCH",
+    headers: {
+      "Context-type": "application/json",
+    },
+    body: JSON.stringify(updatedPost),
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(updatePostAction(data));
+    return data;
+  } else {
+    const err = await res.json();
+    throw err;
+  }
+};
+
 const initialState = {
   Posts: [],
   Post: {},
@@ -105,6 +132,8 @@ const postReducer = (state = initialState, action) => {
     case GET_USER_POSTS:
       return { ...state, Posts: action.payload.Posts };
     case CREATE_POST:
+      return { ...state, Post: action.payload };
+    case UPDATE_POST:
       return { ...state, Post: action.payload };
     default:
       return state;

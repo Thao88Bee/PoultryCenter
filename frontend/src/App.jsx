@@ -24,6 +24,7 @@ import UpdateShow from "./components/Update/UpdateShow";
 import CreateSwapMeet from "./components/Create/CreateSwapMeet";
 import UpdateSwapMeet from "./components/Update/UpdateSwapMeet";
 import CreatePost from "./components/Create/CreatePost";
+import UpdatePost from "./components/Update/UpdatePost";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -111,6 +112,10 @@ const router = createBrowserRouter([
       {
         path: "/posts/create",
         element: <CreatePost />,
+      },
+      {
+        path: "/posts/:postId/update",
+        element: <UpdatePost />,
       },
     ],
   },

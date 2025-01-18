@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserPostsThunk } from "../../store/post";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./UserPosts.css";
 
 function UserPosts() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const userPosts = useSelector((state) => state.post.Posts);
   userPosts?.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 0));
@@ -13,6 +14,11 @@ function UserPosts() {
   useEffect(() => {
     dispatch(getUserPostsThunk());
   }, [dispatch]);
+
+  const goToEditPost = (e, postId) => {
+    e.preventDefault();
+    navigate(`/posts/${postId}/update`);
+  };
 
   return (
     <>
@@ -30,7 +36,12 @@ function UserPosts() {
             </p>
             <div className="userPostsBtn">
               <button className="userPostsDeleteBtn">Delete</button>
-              <button className="userPostsEditBtn">Edit</button>
+              <button
+                className="userPostsEditBtn"
+                onClick={(e) => goToEditPost(e, id)}
+              >
+                Edit
+              </button>
             </div>
           </div>
         </div>
