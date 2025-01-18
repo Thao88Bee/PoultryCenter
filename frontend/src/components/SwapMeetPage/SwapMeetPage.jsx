@@ -23,8 +23,12 @@ function SwapMeetPage() {
         </section>
         <section className="swapMeetInfoSec">
           {swapMeets.map(({ id, name, date }) => (
-            <NavLink className="swapMeetNameDate" to={`/swapMeets/${id}`}>
-              <div className="swapMeetInfo" key={id}>
+            <NavLink
+              className="swapMeetNameDate"
+              to={`/swapMeets/${id}`}
+              key={id}
+            >
+              <div className="swapMeetInfo">
                 {name}
                 <p>
                   <span>

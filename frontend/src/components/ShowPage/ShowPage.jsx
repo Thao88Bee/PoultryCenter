@@ -21,11 +21,10 @@ function ShowPage() {
         <section className="showHeaderSec">
           <h1>Shows Page</h1>
         </section>
-
         <section className="showInfoSec">
           {shows?.map(({ id, name, date }) => (
-            <NavLink className="showNameDate" to={`/shows/${id}`}>
-              <div className="showInfo" key={id}>
+            <NavLink className="showNameDate" to={`/shows/${id}`} key={id}>
+              <div className="showInfo">
                 {name}
                 <p>
                   <span>
