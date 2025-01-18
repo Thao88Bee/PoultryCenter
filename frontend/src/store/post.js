@@ -5,6 +5,7 @@ const GET_ONE_POST = "post/getOnePost";
 const GET_USER_POSTS = "post/getUserPosts";
 const CREATE_POST = "post/createPost";
 const UPDATE_POST = "post/updatePost";
+const DELETE_POST = "post/deletePost";
 
 export const getAllPostsAction = (posts) => {
   return {
@@ -38,6 +39,13 @@ export const updatePostAction = (post) => {
   return {
     type: UPDATE_POST,
     payload: post,
+  };
+};
+
+export const deletePostAction = (postId) => {
+  return {
+    type: DELETE_POST,
+    payload: postId,
   };
 };
 
@@ -118,6 +126,20 @@ export const updatePostThunk = (updatedPost, postId) => async (dispatch) => {
   }
 };
 
+export const deletePostThunk = (postId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/posts/${postId}`, {
+    method: "DELETE",
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(deletePostAction(data));
+  } else {
+    const err = await res.json();
+    throw err;
+  }
+};
+
 const initialState = {
   Posts: [],
   Post: {},
@@ -134,6 +156,8 @@ const postReducer = (state = initialState, action) => {
     case CREATE_POST:
       return { ...state, Post: action.payload };
     case UPDATE_POST:
+      return { ...state, Post: action.payload };
+    case DELETE_POST:
       return { ...state, Post: action.payload };
     default:
       return state;
