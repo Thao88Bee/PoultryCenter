@@ -4,3 +4,9 @@
   text-align: center;
   gap: 5px;
 }
+
+.privacy h2,
+.privacy h3,
+.privacy p {
+  font-size: clamp(12px, 1vw, 15px);
+}

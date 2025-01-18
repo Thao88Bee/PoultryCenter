@@ -4,3 +4,9 @@
   text-align: center;
   gap: 5px;
 }
+
+.cookie h2,
+.cookie h3,
+.cookie p {
+  font-size: clamp(12px, 1vw, 15px);
+}

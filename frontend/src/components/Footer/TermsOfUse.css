@@ -4,3 +4,9 @@
   text-align: center;
   gap: 5px;
 }
+
+.terms h2,
+.terms h3,
+.terms p {
+  font-size: clamp(12px, 1vw, 15px);
+}

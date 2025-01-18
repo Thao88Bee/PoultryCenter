@@ -1,19 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserPostsThunk } from "../../store/post";
 import { NavLink, useNavigate } from "react-router-dom";
+import DeleteModalButton from "../Delete/DeleteModalButton";
+import DeletePost from "../Delete/DeletePost";
 import "./UserPosts.css";
 
 function UserPosts() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [showDelete, setShowDelete] = useState(false);
 
   const userPosts = useSelector((state) => state.post.Posts);
   userPosts?.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 0));
 
   useEffect(() => {
     dispatch(getUserPostsThunk());
-  }, [dispatch]);
+  }, [dispatch, showDelete, userPosts.length]);
 
   const goToEditPost = (e, postId) => {
     e.preventDefault();
@@ -35,7 +38,12 @@ function UserPosts() {
               {avgRating ? <span className="star"> ★</span> : ""}
             </p>
             <div className="userPostsBtn">
-              <button className="userPostsDeleteBtn">Delete</button>
+              <DeleteModalButton
+                buttonText="Delete"
+                modalComponent={
+                  <DeletePost postId={id} setShowDelete={setShowDelete} />
+                }
+              />
               <button
                 className="userPostsEditBtn"
                 onClick={(e) => goToEditPost(e, id)}
