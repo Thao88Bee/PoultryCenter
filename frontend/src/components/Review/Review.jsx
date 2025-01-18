@@ -7,6 +7,7 @@ function Review({ postId }) {
   const dispatch = useDispatch();
 
   const postReviews = useSelector((state) => state.review.Reviews);
+  postReviews?.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 0));
 
   useEffect(() => {
     dispatch(getPostReviewThunk(postId));
@@ -25,6 +26,10 @@ function Review({ postId }) {
             </p>
           </div>
           <p>{review}</p>
+          <div className="reviewBtnSec">
+            <button className="reviewDeleteBtn">Delete</button>
+            <button className="reviewEditBtn">Edit</button>
+          </div>
         </div>
       ))}
     </>

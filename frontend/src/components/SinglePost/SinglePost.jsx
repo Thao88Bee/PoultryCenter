@@ -5,6 +5,8 @@ import { getOnePostThunk } from "../../store/post";
 import Review from "../Review";
 import Footer from "../Footer";
 import "./SinglePost.css";
+import AddModalButton from "../Create/AddModalButton";
+import CreateReview from "../Create/CreateReview";
 
 function SinglePost() {
   const dispatch = useDispatch();
@@ -33,6 +35,20 @@ function SinglePost() {
         </p>
         <p className="postDescription">{post.description}</p>
         <div className="reviewSec">
+          <div className="reviewCountAddBtn">
+            <span className="reviewCount">
+              {post.numReviews ? post.numReviews : "No Review"}{" "}
+              {!post.numReviews
+                ? ""
+                : post.numReviews === 1
+                ? "Review"
+                : "Reviews"}
+            </span>
+            <AddModalButton
+              buttonText="Add a Review"
+              modalComponent={<CreateReview />}
+            />
+          </div>
           <Review postId={postId} />
         </div>
       </div>

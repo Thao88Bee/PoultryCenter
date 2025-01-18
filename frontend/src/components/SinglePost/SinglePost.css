@@ -29,6 +29,15 @@
   padding-inline: 30px;
 }
 
+.reviewCountAddBtn {
+  display: flex;
+  justify-content: space-around;
+}
+
+.reviewCount {
+  font-size: clamp(15px, 2vw, 20px);
+}
+
 .reviewSec {
   width: 90%;
 }

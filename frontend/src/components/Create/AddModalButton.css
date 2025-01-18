@@ -1,0 +1,12 @@
+.addModalBtn {
+  width: 120px;
+  padding: 5px;
+  border: none;
+  background-color: rgb(102, 189, 102);
+  border-radius: 5px;
+}
+
+.addModalBtn:hover {
+  background-color: rgb(31, 117, 0);
+  color: white;
+}
