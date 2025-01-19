@@ -45,6 +45,7 @@
   background-color: rgb(112, 112, 112);
   color: rgb(255, 255, 255);
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .loginFormBtn:hover {
@@ -55,6 +56,15 @@
 .loginPTag {
   font-weight: bold;
   margin-top: 20px;
+}
+
+.loginToSignup {
+  text-decoration: none;
+  color: rgb(0, 0, 255);
+}
+
+.loginToSignup:hover {
+  color: rgb(255, 0, 0);
 }
 
 .loginPicture {

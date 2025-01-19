@@ -65,7 +65,7 @@ function LoginFormPage() {
               Log In as Demo User
             </button>
             <p className="loginPTag">
-              Don&#39;t have a Account? <NavLink>Sign Up</NavLink> here
+              Don&#39;t have a Account? <NavLink className="loginToSignup" to={"/signup"}>Sign Up</NavLink> here
             </p>
           </form>
         </div>

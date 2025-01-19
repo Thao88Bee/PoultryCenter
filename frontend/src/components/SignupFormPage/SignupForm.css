@@ -1,0 +1,103 @@
+.signupSec {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-block: 40px;
+}
+
+.signupPictureSec {
+  display: grid;
+  justify-items: center;
+}
+
+.signupPictureText {
+  display: none;
+}
+
+.signupPictureSec:hover .signupPictureText {
+  display: block;
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  transform: translateY(-35px);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.signupPicture {
+  height: 450px;
+  border-radius: 10px;
+}
+
+.signupFormSec {
+  display: grid;
+  height: fit-content;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  gap: 20px;
+}
+
+.signupHeader {
+  font-size: 50px;
+  color: rgb(59, 59, 59);
+}
+
+.signupForm {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+}
+
+.signupLabel {
+  font-weight: bold;
+}
+
+.signupInput {
+  display: block;
+  width: 250px;
+  height: 25px;
+  border: 2px solid rgb(59, 59, 59);
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.signupFormBtn {
+  width: 200px;
+  height: 25px;
+  border: none;
+  background-color: rgb(112, 112, 112);
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signupFormBtn:hover {
+  background-color: rgb(179, 160, 107);
+  color: rgb(0, 0, 0);
+}
+
+.signupPTag {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.signupToLogin {
+  text-decoration: none;
+  color: rgb(0, 0, 255);
+}
+
+.signupToLogin:hover {
+  color: rgb(255, 0, 0);
+}
+
+@media screen and (max-width: 700px) {
+  .signupSec {
+    display: grid;
+    justify-items: center;
+    gap: 55px;
+  }
+  .signupPictureSec {
+    grid-row-start: 2;
+  }
+}
