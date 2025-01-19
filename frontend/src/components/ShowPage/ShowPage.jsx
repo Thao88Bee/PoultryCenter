@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getAllShowsThunk } from "../../store/show";
-import Footer from "../Footer";
 import "./ShowPage.css";
 
 function ShowPage() {
@@ -41,7 +40,6 @@ function ShowPage() {
           ))}
         </section>
       </div>
-      <Footer />
     </>
   );
 }

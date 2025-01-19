@@ -1,0 +1,90 @@
+.loginSec {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-block: 40px;
+}
+
+.loginFormSec {
+  display: grid;
+  height: fit-content;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  gap: 20px;
+}
+
+.loginHeader {
+  font-size: 50px;
+  color: rgb(59, 59, 59);
+}
+
+.loginForm {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+}
+
+.loginLabel {
+  font-weight: bold;
+}
+
+.loginInput {
+  display: block;
+  width: 250px;
+  height: 25px;
+  border: 2px solid rgb(59, 59, 59);
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.loginFormBtn {
+  width: 200px;
+  height: 25px;
+  border: none;
+  background-color: rgb(112, 112, 112);
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+.loginFormBtn:hover {
+  background-color: rgb(179, 160, 107);
+  color: rgb(0, 0, 0);
+}
+
+.loginPTag {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.loginPicture {
+  height: 450px;
+  border-radius: 10px;
+}
+
+.loginPictureText {
+    display: none;
+}
+
+.loginPictureSec {
+    display: flex;
+    justify-content: center;
+}
+
+.loginPictureSec:hover .loginPictureText {
+    display: block;
+    width: fit-content;
+    padding: 5px;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    transform: translateY(-35px);
+}
+
+@media screen and (max-width: 700px) {
+  .loginSec {
+    display: grid;
+    gap: 55px;
+  }
+}

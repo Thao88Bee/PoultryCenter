@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getOneShowThunk } from "../../store/show";
-import Footer from "../Footer";
 import "./SingleShow.css";
 
 function SingleShow() {
@@ -38,7 +37,6 @@ function SingleShow() {
         <p>{show.description}</p>
         <img className="singleShowImg" src={show.image} alt="" />
       </div>
-      <Footer />
     </>
   );
 }

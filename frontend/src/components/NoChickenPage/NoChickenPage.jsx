@@ -1,10 +1,21 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import logo from "/favicon.ico";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import * as sessionActions from "../../store/session";
 import "./NoChickenPage.css";
 
 function NoChickenPage() {
+  const dispatch = useDispatch();
+  const [refresh, setRefresh] = useState(false);
+
   const user = useSelector((state) => state.session.User);
+
+  useEffect(() => {
+    dispatch(sessionActions.restoreUser()).then(() => {
+      setRefresh(true);
+    });
+  }, [dispatch, refresh]);
 
   return (
     <>

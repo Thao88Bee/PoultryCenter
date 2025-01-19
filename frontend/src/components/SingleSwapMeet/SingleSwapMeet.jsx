@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getOneSwapMeetThunk } from "../../store/swapMeet";
-import Footer from "../Footer";
 import "./SingleSwapMeet.css";
 
 function SingleSwapMeet() {
@@ -38,7 +37,6 @@ function SingleSwapMeet() {
         <p>{swapMeet.description}</p>
         <img src={swapMeet.image} alt="" />
       </div>
-      <Footer />
     </>
   );
 }

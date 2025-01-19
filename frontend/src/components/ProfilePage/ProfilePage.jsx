@@ -3,7 +3,6 @@ import UserShows from "./UserShows";
 import UserSwapMeets from "./UserSwapMeets";
 import UserPosts from "./UserPosts";
 import UserReviews from "./UserReviews";
-import Footer from "../Footer";
 import "./ProfilePage.css";
 
 function ProfilePage() {
@@ -28,7 +27,6 @@ function ProfilePage() {
         <h2>User Reviews</h2>
         <UserReviews />
       </div>
-      <Footer />
     </>
   );
 }

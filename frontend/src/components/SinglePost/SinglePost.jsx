@@ -5,7 +5,6 @@ import { getOnePostThunk } from "../../store/post";
 import AddModalButton from "../Create/AddModalButton";
 import CreateReview from "../Create/CreateReview";
 import Review from "../Review";
-import Footer from "../Footer";
 import "./SinglePost.css";
 
 function SinglePost() {
@@ -58,7 +57,6 @@ function SinglePost() {
           <Review postId={postId} />
         </div>
       </div>
-      <Footer />
     </>
   );
 }

@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getAllSwapMeetsThunk } from "../../store/swapMeet";
-import Footer from "../Footer";
 import "./SwapMeetPage.css";
 
 function SwapMeetPage() {
@@ -45,7 +44,6 @@ function SwapMeetPage() {
           ))}
         </section>
       </div>
-      <Footer />
     </>
   );
 }

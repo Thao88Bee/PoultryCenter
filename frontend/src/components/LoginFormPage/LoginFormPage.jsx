@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import loginPicture from "../../../public/images/sdwoegb.jpg";
 import "./LoginForm.css";
 
 function LoginFormPage() {
@@ -32,30 +33,47 @@ function LoginFormPage() {
 
   return (
     <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username or Email
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        {errors.credential && <p>{errors.credential}</p>}
-        <button type="submit">Log In</button>
-        <button onClick={demo}>Log In as Demo User</button>
-      </form>
+      <div className="loginSec">
+        <div className="loginFormSec">
+          <h1 className="loginHeader">Log In</h1>
+          <form className="loginForm" onSubmit={handleSubmit}>
+            <label className="loginLabel">
+              Username or Email
+              <input
+                className="loginInput"
+                type="text"
+                value={credential}
+                onChange={(e) => setCredential(e.target.value)}
+                required
+              />
+            </label>
+            <label className="loginLabel">
+              Password
+              <input
+                className="loginInput"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </label>
+            {errors.credential && <p>{errors.credential}</p>}
+            <button className="loginFormBtn" type="submit">
+              Log In
+            </button>
+            <button className="loginFormBtn" onClick={demo}>
+              Log In as Demo User
+            </button>
+            <p className="loginPTag">
+              Don&#39;t have a Account? <NavLink>Sign Up</NavLink> here
+            </p>
+          </form>
+        </div>
+        <div className="loginPictureSec">
+          <div className="loginPictureText">Sliver Duckwing OEGB</div>
+          <img className="loginPicture" src={loginPicture} alt="Sliver Duckwing OEGB" />
+        </div>
+      </div>
     </>
   );
 }

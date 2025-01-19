@@ -26,6 +26,7 @@ import UpdateSwapMeet from "./components/Update/UpdateSwapMeet";
 import CreatePost from "./components/Create/CreatePost";
 import UpdatePost from "./components/Update/UpdatePost";
 import NoChickenPage from "./components/NoChickenPage";
+import Footer from "./components/Footer";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ function Layout() {
       <ScrollRestoration />
       <Navigation isLoaded={isLoaded} />
       {isLoaded && <Outlet />}
+      <Footer />
     </>
   );
 }
