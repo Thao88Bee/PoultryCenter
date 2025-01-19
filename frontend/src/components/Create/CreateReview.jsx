@@ -79,7 +79,9 @@ function CreateReview({ setRefresh }) {
         <button
           className="reviewModalBtn"
           disabled={disabled}
-          onClick={() => (onSubmit(), setReload(true), setRefresh((prev) => !prev))}
+          onClick={() => (
+            onSubmit(), setReload(true), setRefresh((prev) => !prev)
+          )}
         >
           Submit Your Review
         </button>

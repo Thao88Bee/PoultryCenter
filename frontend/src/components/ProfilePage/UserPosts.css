@@ -21,13 +21,13 @@
 
 .userPostsLink {
   text-decoration: none;
-  color: black;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   width: fit-content;
 }
 
 .userPostsLink:hover {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 
 .userPostsBtn {
@@ -50,7 +50,7 @@
 
 .userPostsDeleteBtn:hover {
   background-color: rgb(59, 59, 59);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .userPostsEditBtn {
@@ -59,7 +59,7 @@
 
 .userPostsEditBtn:hover {
   background-color: rgb(31, 117, 0);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 @media screen and (max-width: 700px) {

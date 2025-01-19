@@ -29,8 +29,8 @@
 }
 
 .deleteShowModalBtn:hover {
-  background-color: red;
-  color: white;
+  background-color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 .cancelShowModalBtn {
@@ -38,6 +38,6 @@
 }
 
 .cancelShowModalBtn:hover {
-  background-color: black;
-  color: white;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }

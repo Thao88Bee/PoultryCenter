@@ -51,10 +51,10 @@
   border: none;
   background-color: rgb(112, 112, 112);
   border-radius: 5px;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .updateBtn:hover {
   background-color: rgb(179, 160, 107);
-  color: black;
+  color: rgb(0, 0, 0);
 }

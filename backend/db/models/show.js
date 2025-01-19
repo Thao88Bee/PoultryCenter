@@ -56,9 +56,6 @@ module.exports = (sequelize, DataTypes) => {
       image: {
         type: DataTypes.TEXT,
         allowNull: true,
-        // validate: {
-        //   isUrl: true,
-        // },
       },
     },
     {

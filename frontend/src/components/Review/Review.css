@@ -26,24 +26,6 @@
   border-radius: 5px;
 }
 
-.reviewDeleteBtn {
-  background-color: rgb(179, 160, 107);
-}
-
-.reviewDeleteBtn:hover {
-  background-color: rgb(59, 59, 59);
-  color: white;
-}
-
-.reviewEditBtn {
-  background-color: rgb(102, 189, 102);
-}
-
-.reviewEditBtn:hover {
-  background-color: rgb(31, 117, 0);
-  color: white;
-}
-
 @media screen and (max-width: 700px) {
   .reviewBtnSec {
     padding: 0;

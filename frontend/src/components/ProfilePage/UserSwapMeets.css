@@ -15,13 +15,13 @@
 
 .userSwapMeetsLink {
   text-decoration: none;
-  color: black;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   width: fit-content;
 }
 
 .userSwapMeetsLink:hover {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 
 .userSwapMeetsBtn {
@@ -44,7 +44,7 @@
 
 .userSwapMeetsDeleteBtn:hover {
   background-color: rgb(59, 59, 59);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .userSwapMeetsEditBtn {
@@ -53,7 +53,7 @@
 
 .userSwapMeetsEditBtn:hover {
   background-color: rgb(31, 117, 0);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 @media screen and (max-width: 700px) {

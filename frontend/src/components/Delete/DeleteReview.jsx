@@ -1,16 +1,16 @@
 import { useDispatch } from "react-redux";
-import { deletePostThunk } from "../../store/post";
 import { useModal } from "../../context/Modal";
+import { deleteReviewThunk } from "../../store/review";
 import "./Delete.css";
 
-function DeletePost({ postId, setShowDelete }) {
+function DeleteReview({ reviewId, setRefresh }) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    await dispatch(deletePostThunk(postId));
-    setShowDelete((prev) => !prev);
+    await dispatch(deleteReviewThunk(reviewId));
+    setRefresh((prev) => !prev);
     closeModal();
   };
 
@@ -18,7 +18,7 @@ function DeletePost({ postId, setShowDelete }) {
     <>
       <div className="deleteShowModal">
         <h2 className="deleteShowModalheader">
-          Do you really want to delelte this Post?
+          Do you really want to delete this Review?
         </h2>
         <section className="deleteShowModalBtnSec">
           <button className="deleteShowModalBtn" onClick={handleDelete}>
@@ -27,7 +27,7 @@ function DeletePost({ postId, setShowDelete }) {
           <button
             className="cancelShowModalBtn"
             onClick={() => {
-              setShowDelete((prev) => !prev);
+              setRefresh((prev) => !prev);
               closeModal();
             }}
           >
@@ -39,4 +39,4 @@ function DeletePost({ postId, setShowDelete }) {
   );
 }
 
-export default DeletePost;
+export default DeleteReview;

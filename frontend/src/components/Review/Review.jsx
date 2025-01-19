@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getPostReviewThunk } from "../../store/review";
-import "./Review.css";
 import AddModalButton from "../Create/AddModalButton";
 import UpdateReview from "../Update/updateReview";
 import { getOnePostThunk } from "../../store/post";
+import DeleteModalButton from "../Delete/DeleteModalButton";
+import DeleteReview from "../Delete/DeleteReview";
+import "./Review.css";
 
 function Review({ postId }) {
   const dispatch = useDispatch();
@@ -32,15 +34,24 @@ function Review({ postId }) {
             </p>
           </div>
           <p>{review}</p>
-          {user?.id === Owner?.id ? (<div className="reviewBtnSec">
-            <button className="reviewDeleteBtn">Delete</button>
-            <AddModalButton
-              buttonText="Edit"
-              modalComponent={
-                <UpdateReview reviewId={id} setRefresh={setRefresh} />
-              }
-            />
-          </div>) : ("")}
+          {user?.id === Owner?.id ? (
+            <div className="reviewBtnSec">
+              <DeleteModalButton
+                buttonText="Delete"
+                modalComponent={
+                  <DeleteReview reviewId={id} setRefresh={setRefresh} />
+                }
+              />
+              <AddModalButton
+                buttonText="Edit"
+                modalComponent={
+                  <UpdateReview reviewId={id} setRefresh={setRefresh} />
+                }
+              />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       ))}
     </>

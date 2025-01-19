@@ -2,11 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getOnePostThunk } from "../../store/post";
+import AddModalButton from "../Create/AddModalButton";
+import CreateReview from "../Create/CreateReview";
 import Review from "../Review";
 import Footer from "../Footer";
 import "./SinglePost.css";
-import AddModalButton from "../Create/AddModalButton";
-import CreateReview from "../Create/CreateReview";
 
 function SinglePost() {
   const dispatch = useDispatch();

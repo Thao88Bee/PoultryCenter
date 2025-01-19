@@ -31,7 +31,7 @@
 .swapMeetNameDate {
   font-size: clamp(15px, 2vw, 20px);
   text-decoration: none;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .swapMeetInfo p {

@@ -4,14 +4,14 @@
 
 .userProfile h2 {
   color: rgb(59, 59, 59);
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(0, 0, 0);
 }
 
 .userProfileLink {
   display: block;
   text-decoration: none;
   margin-block: 20px;
-  color: black;
+  color: rgb(0, 0, 0);
   font-weight: bold;
 }
 

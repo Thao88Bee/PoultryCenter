@@ -18,13 +18,13 @@
 
 .userReviewPostsLink {
   text-decoration: none;
-  color: black;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   width: fit-content;
 }
 
 .userReviewPostsLink:hover {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 
 @media screen and (max-width: 700px) {

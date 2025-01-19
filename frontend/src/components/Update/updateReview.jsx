@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useEffect, useState } from "react";
 import { getPostReviewThunk, updateReviewThunk } from "../../store/review";
+import "../Create/ReviewModal.css";
 
 function UpdateReview({ reviewId, setRefresh }) {
   const dispatch = useDispatch();

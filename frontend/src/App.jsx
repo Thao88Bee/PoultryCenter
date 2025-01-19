@@ -25,6 +25,7 @@ import CreateSwapMeet from "./components/Create/CreateSwapMeet";
 import UpdateSwapMeet from "./components/Update/UpdateSwapMeet";
 import CreatePost from "./components/Create/CreatePost";
 import UpdatePost from "./components/Update/UpdatePost";
+import NoChickenPage from "./components/NoChickenPage";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -118,6 +119,10 @@ const router = createBrowserRouter([
         element: <UpdatePost />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NoChickenPage />,
   },
 ]);
 

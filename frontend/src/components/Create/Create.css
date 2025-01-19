@@ -34,7 +34,7 @@
 }
 
 .error {
-  color: red;
+  color: rgb(255, 0, 0);
   text-align: center;
   margin-block: 10px;
 }
@@ -52,10 +52,10 @@
   border: none;
   background-color: rgb(112, 112, 112);
   border-radius: 5px;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .createBtn:hover {
   background-color: rgb(179, 160, 107);
-  color: black;
+  color: rgb(0, 0, 0);
 }

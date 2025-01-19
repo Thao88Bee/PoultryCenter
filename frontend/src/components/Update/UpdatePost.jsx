@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getOnePostThunk, updatePostThunk } from "../../store/post";
+import "./Update.css";
 
 function UpdatePost() {
   const dispatch = useDispatch();
@@ -49,7 +50,9 @@ function UpdatePost() {
         <h2 className="updateTitle">Edit your Post</h2>
         <form className="updateForm" action="">
           <div className="updateSec">
-            <label className="updateLabel" htmlFor="">Name:</label>
+            <label className="updateLabel" htmlFor="">
+              Name:
+            </label>
             <input
               className="updateInput"
               type="text"
@@ -58,7 +61,9 @@ function UpdatePost() {
             />
           </div>
           <div className="updateSec">
-            <label className="updateLabel" htmlFor="">Description:</label>
+            <label className="updateLabel" htmlFor="">
+              Description:
+            </label>
             <textarea
               className="updateBigInput"
               value={description}
@@ -66,7 +71,9 @@ function UpdatePost() {
             ></textarea>
           </div>
           <div className="updateSec">
-            <label className="updateLabel" htmlFor="">Image:</label>
+            <label className="updateLabel" htmlFor="">
+              Image:
+            </label>
             <input
               className="updateInput"
               type="text"
@@ -74,9 +81,9 @@ function UpdatePost() {
               onChange={(e) => setImage(e.target.value)}
             />
             <div className="updateBtnSec">
-            <button className="updateBtn" onClick={onSubmit}>
-              Update Post
-            </button>
+              <button className="updateBtn" onClick={onSubmit}>
+                Update Post
+              </button>
             </div>
           </div>
         </form>
