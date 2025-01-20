@@ -47,6 +47,17 @@
   border-radius: 10px;
 }
 
+.homePageSwapSec {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.homePageSwapImage {
+    width: 100%;
+    border-radius: 10px;
+  }
+
 .homePageMember {
   display: grid;
   justify-items: center;

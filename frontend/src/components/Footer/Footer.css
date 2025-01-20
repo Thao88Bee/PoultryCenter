@@ -1,7 +1,7 @@
 .footer {
   display: grid;
   gap: 50px;
-  margin-top: 100px;
+  margin-top: 50px;
   padding: 50px;
   background-color: rgb(112, 112, 112);
   color: rgb(255, 255, 255);
