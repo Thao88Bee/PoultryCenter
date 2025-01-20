@@ -9,22 +9,22 @@ function ProfilePage() {
   return (
     <>
       <div className="userProfile">
-        <h2>User Shows</h2>
+        <h2>Shows</h2>
         <NavLink className="userProfileLink" to={"/shows/create"}>
           Create New Show
         </NavLink>
         <UserShows />
-        <h2>User Swap Meets</h2>
+        <h2>Swap Meets</h2>
         <NavLink className="userProfileLink" to={"/swapMeets/create"}>
           Create New Swap Meet
         </NavLink>
         <UserSwapMeets />
-        <h2>User Posts</h2>
+        <h2>Posts</h2>
         <NavLink className="userProfileLink" to={"/posts/create"}>
           Create New Post
         </NavLink>
         <UserPosts />
-        <h2>User Reviews</h2>
+        <h2>Reviews</h2>
         <UserReviews />
       </div>
     </>

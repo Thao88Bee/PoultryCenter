@@ -1,12 +1,12 @@
 .homePageWinner {
-    display: grid;
-    gap: 10px;
-    justify-items: center;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
 }
 
 .winnerHeader {
-    color: rgb(59, 59, 59);
-    font-size: 30px;
+  color: rgb(59, 59, 59);
+  font-size: 30px;
 }
 
 .homePageSec {
@@ -23,20 +23,43 @@
 }
 
 .homePageSecTwo {
-  border: 2px solid;
+    display: grid;
+    height: fit-content;
+    gap: 10px;
+}
+
+.homePageWelcome {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding-block: 30px;
+  background-color: rgb(197, 197, 197);
+  border-radius: 10px;
+}
+
+.homePageWelcome h2 {
+  font-size: clamp(25px, 3vw, 35px);
+  color: rgb(59, 59, 59);
+}
+
+.homePageShowImage {
+  width: 100%;
+  border-radius: 10px;
 }
 
 .homePageMember {
-    display: grid;
-    justify-items: center;
-    gap: 20px;
-    padding-block: 50px;
-    background-color: rgb(197, 197, 197);
-    border-radius: 10px;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding-block: 30px;
+  background-color: rgb(197, 197, 197);
+  border-radius: 10px;
 }
 
+.homePageWelcome p,
 .homePageMember p {
-    font-size: clamp(20px, 3vw, 30px);
+  font-size: clamp(15px, 2vw, 20px);
+  color: rgb(59, 59, 59);
 }
 
 @media screen and (max-width: 700px) {
