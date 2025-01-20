@@ -1,0 +1,15 @@
+.homePageSecOne {
+    /* border: 2px solid; */
+    display: grid;
+    justify-items: center;
+    height: fit-content
+}
+
+.homePageSecTwo {
+    border: 2px solid;
+}
+
+.homePageAd {
+    width: 200px;
+    margin: 20px;
+}

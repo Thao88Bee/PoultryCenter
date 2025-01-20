@@ -1,10 +1,12 @@
+import AdvertisingSec from "./AdvertisingSec";
 import "./HomePage.css";
 
 function HomePage() {
   return (
     <>
-      <div>
-        <h1>Home Page</h1>
+      <div className="homePage">
+        <AdvertisingSec />
+        <div className="homePageSecTwo"></div>
       </div>
     </>
   );

@@ -1,0 +1,23 @@
+.homePage {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    margin: 20px;
+    gap: 10px;
+}
+
+.homePageSecOne {
+    border: 2px solid;
+}
+
+.homePageSecTwo {
+    border: 2px solid;
+}
+
+@media screen and (max-width: 700px) {
+    .homePage {
+        grid-template-columns: 1fr;
+    }
+    .homePageSecOne {
+        display: none;
+    }
+}
