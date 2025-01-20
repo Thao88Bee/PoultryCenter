@@ -1,23 +1,49 @@
-.homePage {
+.homePageWinner {
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    margin: 20px;
     gap: 10px;
+    justify-items: center;
+}
+
+.winnerHeader {
+    color: rgb(59, 59, 59);
+    font-size: 30px;
+}
+
+.homePageSec {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin: 20px;
+  gap: 10px;
 }
 
 .homePageSecOne {
-    border: 2px solid;
+  display: grid;
+  justify-items: center;
+  align-items: center;
 }
 
 .homePageSecTwo {
-    border: 2px solid;
+  border: 2px solid;
+}
+
+.homePageMember {
+    display: grid;
+    justify-items: center;
+    gap: 20px;
+    padding-block: 50px;
+    background-color: rgb(197, 197, 197);
+    border-radius: 10px;
+}
+
+.homePageMember p {
+    font-size: clamp(20px, 3vw, 30px);
 }
 
 @media screen and (max-width: 700px) {
-    .homePage {
-        grid-template-columns: 1fr;
-    }
-    .homePageSecOne {
-        display: none;
-    }
+  .homePageSec {
+    grid-template-columns: 1fr;
+  }
+  .homePageSecOne {
+    grid-row-start: 2;
+  }
 }

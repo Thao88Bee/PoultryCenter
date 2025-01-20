@@ -1,15 +1,9 @@
-.homePageSecOne {
-    /* border: 2px solid; */
-    display: grid;
-    justify-items: center;
-    height: fit-content
-}
-
-.homePageSecTwo {
-    border: 2px solid;
-}
-
 .homePageAd {
-    width: 200px;
-    margin: 20px;
+  width: 150px;
+  margin: 20px;
+  opacity: 1;
+}
+
+.homePageAd:hover {
+  opacity: 0.6;
 }

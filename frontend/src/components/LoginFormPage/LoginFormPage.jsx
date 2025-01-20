@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, NavLink } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-import loginPicture from "../../../public/images/sdwoegb.jpg";
+import loginPicture from "../../images/sdwoegb.jpg";
 import "./LoginForm.css";
 
 function LoginFormPage() {
@@ -13,7 +13,7 @@ function LoginFormPage() {
 
   const sessionUser = useSelector((state) => state.session.User);
 
-  if (sessionUser) return <Navigate to="/home" replace={true} />;
+  if (sessionUser) return <Navigate to="/" replace={true} />;
 
   const handleSubmit = (e) => {
     e.preventDefault();

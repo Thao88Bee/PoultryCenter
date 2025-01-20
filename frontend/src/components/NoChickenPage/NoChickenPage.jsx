@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import logo from "/favicon.ico";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -8,8 +8,6 @@ import "./NoChickenPage.css";
 function NoChickenPage() {
   const dispatch = useDispatch();
   const [refresh, setRefresh] = useState(false);
-
-  const user = useSelector((state) => state.session.User);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => {
@@ -24,7 +22,7 @@ function NoChickenPage() {
         <p>Page Not Found</p>
         <h2>NO Chicken Here!!</h2>
         <p>Click on this Little Chicken.</p>
-        <NavLink to={user ? "/home" : "/"}>
+        <NavLink to={"/"}>
           <img className="noChickenLogo" src={logo} alt="" />
         </NavLink>
         <p>He&#39;ll take you back,</p>

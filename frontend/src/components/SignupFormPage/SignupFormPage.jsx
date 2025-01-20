@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, NavLink } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-import signupPicture from "../../../public/images/whiteoegb8.jpg"
+import signupPicture from "../../images/whiteoegb8.jpg"
 import "./SignupForm.css";
 
 function SignupFormPage() {

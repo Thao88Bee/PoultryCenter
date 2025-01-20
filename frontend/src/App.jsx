@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import LandingPage from "./components/LandingPage";
 import HomePage from "./components/HomePage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
@@ -54,10 +53,6 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LandingPage />,
-      },
-      {
-        path: "/home",
         element: <HomePage />,
       },
       {
