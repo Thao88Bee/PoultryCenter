@@ -1,4 +1,5 @@
 .userProfile {
+  display: grid;
   justify-items: center;
 }
 
