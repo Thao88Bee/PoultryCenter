@@ -10,7 +10,6 @@ import c9 from "../../images/c9.jpg";
 import c10 from "../../images/c10.jpg";
 import c11 from "../../images/c11.jpg";
 import c12 from "../../images/c12.jpg";
-
 import "./HomeSlider.css";
 
 function HomeSlider() {

@@ -12,3 +12,14 @@
 .singleSwapMeet p {
   font-size: clamp(15px, 2vw, 25px);
 }
+
+.singleSwapMeetImg {
+  width: 600px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .singleSwapMeetImg {
+    width: 350px;
+  }
+}

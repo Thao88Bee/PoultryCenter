@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const { Review } = require("../models");
 
@@ -17,13 +17,14 @@ const reviews = [
   {
     ownerId: 1,
     postId: 8,
-    review: " It has a small crest,feathered blue legs and feet,5 toes, turquoise earlobes. Definitely a crossbreed with some Silkie genetics.",
+    review:
+      " It has a small crest,feathered blue legs and feet,5 toes, turquoise earlobes. Definitely a crossbreed with some Silkie genetics.",
     starRating: 2,
   },
   {
     ownerId: 2,
     postId: 1,
-    review:"Eat him. There's no point in keeping a rooster that kills hens.",
+    review: "Eat him. There's no point in keeping a rooster that kills hens.",
     starRating: 3,
   },
   {
@@ -33,7 +34,7 @@ const reviews = [
     starRating: 1,
   },
   {
-    ownerId:2,
+    ownerId: 2,
     postId: 9,
     review: "I dislike irresponsible dog owners!",
     starRating: 4,
@@ -53,7 +54,8 @@ const reviews = [
   {
     ownerId: 3,
     postId: 4,
-    review: "We use lath/ or any scrap wood and screw down plastic were we can. That way the wind doesn’t catch the plastic and cause it to billow.",
+    review:
+      "We use lath/ or any scrap wood and screw down plastic were we can. That way the wind doesn’t catch the plastic and cause it to billow.",
     starRating: 3,
   },
   {
@@ -62,17 +64,17 @@ const reviews = [
     review: "Creative greenhouse concept for hatching chicks",
     starRating: 5,
   },
-]
+];
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await Review.bulkCreate(reviews);
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     options.tableName = "Reviews";
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, { [Op.or]: reviews });
-  }
+  },
 };

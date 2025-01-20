@@ -35,7 +35,7 @@ function SingleSwapMeet() {
           {new Date(swapMeet.date).getFullYear()}
         </p>
         <p>{swapMeet.description}</p>
-        <img src={swapMeet.image} alt="" />
+        <img className="singleSwapMeetImg" src={swapMeet.image} alt="" />
       </div>
     </>
   );

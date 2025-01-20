@@ -1,6 +1,7 @@
-import AdvertisingSec from "./AdvertisingSec";
-import "./HomePage.css";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import HomeSlider from "./HomeSlider";
+import AdvertisingSec from "./AdvertisingSec";
 import showOne from "../../images/s1.jpg";
 import swapOne from "../../images/taylor.jpg";
 import swapTwo from "../../images/taylor2.jpg";
@@ -8,8 +9,7 @@ import swapThree from "../../images/taylor3.jpg";
 import swapFour from "../../images/pk.jpg";
 import swapFive from "../../images/taylor6.jpg";
 import swapSix from "../../images/taylor7.jpg";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import "./HomePage.css";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -46,16 +46,23 @@ function HomePage() {
             <img className="homePageSwapImage" src={swapSix} alt="" />
           </div>
           <div>
-            { !user ? (            <div className="homePageMember">
-              <p>Become a PoultryCenter Member</p>
-              <p>Post up Shows, Swap Meets</p>
-              <p>So everyone get the lastest updates</p>
-              <p>About yor Show, Swap Meets</p>
-              <br />
-              <button className="signupBtn" onClick={(e) => goTo(e, "signup")}>
-                Sign Up
-              </button>
-            </div>) : ("") }
+            {!user ? (
+              <div className="homePageMember">
+                <p>Become a PoultryCenter Member</p>
+                <p>Post up Shows, Swap Meets</p>
+                <p>So everyone get the lastest updates</p>
+                <p>About yor Show, Swap Meets</p>
+                <br />
+                <button
+                  className="signupBtn"
+                  onClick={(e) => goTo(e, "signup")}
+                >
+                  Sign Up
+                </button>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
