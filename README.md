@@ -17,7 +17,7 @@ Node.js is needed for this application. Link [https://nodejs.org/] for downloadi
 
 ### Clone Repository
 
-Get repository from [https://github.com/Thao88Bee/PoultryCenter].
+Get repository from [https://github.com/Thao88Bee/PoultryCenter]. In your terminal run the command `git clone https://github.com/Thao88Bee/PoultryCenter.git` to clone the repository onto your machine. Then, `cd` into the root directory of the application.
 
   ```bash
   git clone https://github.com/Thao88Bee/PoultryCenter.git
@@ -26,32 +26,48 @@ Get repository from [https://github.com/Thao88Bee/PoultryCenter].
 
 ### Install Backend Dependencies
 
+`cd` into the `backend` folder and install the dependencies that is needed for this application by running `npm install` in the terminal.
+
   ```bash
   cd backend
   npm install
   ```
 
-### Setting .env File
+### Creating a .env File
 
-Make a `.env` file in your `backend` folder
+In the `backend` folder, create a `.env` file.
 
   ```bash
-
   touch .env
   ```
 
-Copy `.env.example` into the `.env` file, follow instruction in `.env.example` file for JWT_SECRET.
+Copy `.env.example` into the `.env` file. Then, to generate a JWT_SECRET run this command in your terminal `openssl rand -base64 10`. Choose a custom schema name in snake case.
+
+  ```bash
+  openssl rand -base64 10
+  ```
 
 ### Seed Data
 
-Make sure your in the `backend` folder when running this command in the termainl.
+In the `backend` folder run this command in the termainl to seed data into your database `dev.db` file.
 
   ```bash
   npx dotenv sequelize db:migrate
   npx dotenv sequelize db:seed:all
   ```
 
+To reset the database `dev.db` file, you can run this command in the terminal. Only run, if you need to reset the database.
+
+```bash
+npx dotenv sequelize db:seed:undo:all
+npx dotenv sequelize db:migrate:undo:all
+npx dotenv sequelize db:migrate
+npx dotenv sequelize db:seed:all
+```
+
 ### Install Frontend Dependencies
+
+`cd` into the `frontend` folder and install the dependencies that is needed for this application by running `npm install` in the terminal.
 
   ```bash
   cd frontend
@@ -60,7 +76,7 @@ Make sure your in the `backend` folder when running this command in the termainl
 
 ### Run Backend Server
 
-The backend server will run on [http://localhost:8000].
+`cd` into the `backend` folder and run `npm start` in the terminal to start the backend server. The backend server will be running on [http://localhost:8000].
 
   ```bash
   cd backend
@@ -69,7 +85,7 @@ The backend server will run on [http://localhost:8000].
 
 ### Run Frontend Server
 
-The frontend server will run on [http://localhost:5173].
+In another terminal `cd` into the `frontend` folder and run `npm run dev` to start the frontend server. The frontend server will run on [http://localhost:5173].
 
   ```bash
   cd frontend
