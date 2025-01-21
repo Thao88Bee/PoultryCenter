@@ -1,5 +1,76 @@
 # Poultry Center
 
+## Frontend 
+
+- React: JavaScript library for building user interfaces
+- Redux: State management for React applications
+- CSS: Styling for the front-end user interface
+
+## Backend
+
+- Express: Web framework for Node.js for handling server-side logic
+- SQLite3 / PostgreSQL: Database for storing User Data, Shows, Swap Meets, Posts and Reviews
+
+## How to Locally Launch Application
+
+### Clone Repository
+
+  ```bash
+  git clone https://github.com/Thao88Bee/PoultryCenter.git
+  cd PoultryCenter
+  ```
+
+### Install Backend Dependencies
+
+  ```bash
+  cd backend
+  npm install
+  ```
+
+### Setting .env File
+
+**Make a .env file in your backend folder**
+
+  ```bash
+  touch .env
+  ```
+  
+**Copy .env.example into the .env file, follow instruction in .env.example for JWT_SECRET.**
+
+### Seed Data
+
+  ```bash
+  npx dotenv sequelize db:migrate
+  npx dotenv sequelize db:seed:all
+  ```
+
+### Install Frontend Dependencies
+
+  ```bash
+  cd frontend
+  npm install
+  ```
+
+### Run Backend Server
+
+**The backend server will run on http://localhost:8000.**
+
+  ```bash
+  cd backend
+  npm start
+  ```
+
+### Run Frontend Server
+
+**The frontend server will run on http://localhost:5173.**
+
+  ```bash
+  cd frontend
+  npm run dev
+  ```
+**Once both servers are running, navigate to http://localhost:5173 in your browser to access the application.**
+
+
 ## Database Schema Design
 
 ![db-schema]
