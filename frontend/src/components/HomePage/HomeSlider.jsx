@@ -17,7 +17,7 @@ function HomeSlider() {
     <>
       <div
         className="homeSlider"
-        style={{ "--width": "200px", "--height": "250px", "--quantity": 10 }}
+        style={{ "--width": "200px", "--height": "250px", "--quantity": 12 }}
       >
         <div className="homeSliderList">
           <div className="homeSliderImage" style={{ "--position": 1 }}>
