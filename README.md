@@ -13,7 +13,11 @@
 
 ## How to Locally Launch Application
 
+Node.js is needed for this application. Link [https://nodejs.org/] for downloading node.js. SQLite3 or PostgreSQL is needed for setting up a database locally.
+
 ### Clone Repository
+
+Get repository from [https://github.com/Thao88Bee/PoultryCenter].
 
   ```bash
   git clone https://github.com/Thao88Bee/PoultryCenter.git
@@ -29,15 +33,18 @@
 
 ### Setting .env File
 
-**Make a .env file in your backend folder**
+Make a `.env` file in your `backend` folder
 
   ```bash
+
   touch .env
   ```
-  
-**Copy .env.example into the .env file, follow instruction in .env.example for JWT_SECRET.**
+
+Copy `.env.example` into the `.env` file, follow instruction in `.env.example` file for JWT_SECRET.
 
 ### Seed Data
+
+Make sure your in the `backend` folder when running this command in the termainl.
 
   ```bash
   npx dotenv sequelize db:migrate
@@ -53,7 +60,7 @@
 
 ### Run Backend Server
 
-**The backend server will run on http://localhost:8000.**
+The backend server will run on [http://localhost:8000].
 
   ```bash
   cd backend
@@ -62,13 +69,13 @@
 
 ### Run Frontend Server
 
-**The frontend server will run on http://localhost:5173.**
+The frontend server will run on [http://localhost:5173].
 
   ```bash
   cd frontend
   npm run dev
   ```
-**Once both servers are running, navigate to http://localhost:5173 in your browser to access the application.**
+**Once both servers are running, navigate to [http://localhost:5173] in your browser to access the application.**
 
 
 ## Database Schema Design
@@ -1534,3 +1541,8 @@ Delete an existing review.
       "message": "Review couldn't be found"
     }
     ```
+
+[https://nodejs.org/]: https://nodejs.org/
+[https://github.com/Thao88Bee/PoultryCenter]: https://github.com/Thao88Bee/PoultryCenter
+[http://localhost:8000]: http://localhost:8000
+[http://localhost:5173]: http://localhost:5173
