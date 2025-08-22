@@ -23,7 +23,7 @@ function UserReviews() {
             </NavLink>
             <p>{Post?.description}</p>
           </div>
-          <h3>User Review and Star rating on post</h3>
+          <h3>Review and Star rating on post</h3>
           <div className="userReviewsInfo">
             <p>{review}</p>
             <p>
