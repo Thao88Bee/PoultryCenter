@@ -6,11 +6,9 @@
   padding: 20px;
 }
 
-/* .logoSec {
-  justify-items: center;
-  justify-content: center;
-  text-align: center;
-} */
+.logo {
+  height: 20dvh;
+}
 
 .signupBtn,
 .userBtn {
@@ -32,14 +30,10 @@
   margin-bottom: 10px;
 }
 
-.appName {
+.title {
   text-decoration: none;
   font-size: clamp(40px, 8vw, 100px);
   color: rgb(112, 112, 112);
-}
-
-.appName:hover {
-  color: rgb(179, 160, 107);
 }
 
 .navBtns {

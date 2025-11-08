@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import logo from "/favicon.ico";
+import logo from "/noChickenLogo.png";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";

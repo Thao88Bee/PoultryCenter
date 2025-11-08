@@ -51,7 +51,7 @@ function HomePage() {
                 <p>Become a PoultryCenter Member</p>
                 <p>Post up Shows, Swap Meets</p>
                 <p>So everyone get the lastest updates</p>
-                <p>About yor Show, Swap Meets</p>
+                <p>About your Show, Swap Meets</p>
                 <br />
                 <button
                   className="signupBtn"

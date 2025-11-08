@@ -33,8 +33,9 @@ function Navigation({ isLoaded }) {
 
         <section className="logoSec">
           <NavLink className="appName" to={"/"}>
-            Poultry <img src={logo} alt="" /> Center
+            <img className="logo" src={logo} alt="Poultry Logo" /> <br />
           </NavLink>
+          <h1 className="title">Poultry Center</h1>
         </section>
 
         <section className="navBtns">
