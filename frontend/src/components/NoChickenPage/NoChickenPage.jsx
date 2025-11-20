@@ -21,12 +21,12 @@ function NoChickenPage() {
         <h1 className="noChickenHeader">404</h1>
         <p>Page Not Found</p>
         <h2>NO Chicken Here!!</h2>
-        <p>Click on this Little Chicken.</p>
+        <p>Click on the Little Kitten riding the Chicken.</p>
         <NavLink to={"/"}>
           <img className="noChickenLogo" src={logo} alt="" />
         </NavLink>
-        <p>He&#39;ll take you back,</p>
-        <p>to where all his chicken friends run FREE!!</p>
+        <p>They&#39;ll take you back,</p>
+        <p>to where all their chicken friends run FREE!!</p>
       </div>
     </>
   );
