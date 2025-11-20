@@ -29,10 +29,10 @@
 
 @keyframes autoRun {
   from {
-    left: 100%;
+    left: 80%;
   }
   to {
-    left: calc(var(--width) * -1);
+    left: calc(var(--width) * -4);
   }
 }
 
@@ -43,4 +43,15 @@
 
 .homeSlider .homeSliderImage:hover {
   filter: grayscale(0);
+}
+
+@media screen and (max-width: 700px) {
+  @keyframes autoRun {
+    from {
+      left: 25%;
+    }
+    to {
+      left: calc(var(--width) * -10);
+    }
+  }
 }

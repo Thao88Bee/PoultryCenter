@@ -31,7 +31,7 @@ function HomePage() {
         <AdvertisingSec />
         <div className="homePageSecTwo">
           <div className="homePageWelcome">
-            <h2>Welcom To Poultry Center</h2>
+            <h2>Welcome To Poultry Center</h2>
             <p>We are all about Poultry and Poultry Lovers</p>
             <p>Share Idea&#39;s and Concern&#39;s</p>
             <p>or just Fun Facts</p>
