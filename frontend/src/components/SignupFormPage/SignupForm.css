@@ -97,4 +97,7 @@
     display: grid;
     gap: 55px;
   }
+  .signupPictureSec {
+    grid-row-start: 2;
+  }
 }
