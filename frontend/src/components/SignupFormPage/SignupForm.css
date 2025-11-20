@@ -6,8 +6,8 @@
 }
 
 .signupPictureSec {
-  display: grid;
-  justify-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .signupPictureText {
@@ -94,11 +94,10 @@
 @media screen and (max-width: 700px) {
   .signupSec {
     display: grid;
-    justify-items: center;
+    /* justify-items: center; */
     gap: 55px;
   }
   .signupPictureSec {
     grid-row-start: 2;
-    justify-items: center;
   }
 }
