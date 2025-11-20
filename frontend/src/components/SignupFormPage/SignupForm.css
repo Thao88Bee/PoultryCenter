@@ -16,6 +16,7 @@
 
 .signupPictureSec:hover .signupPictureText {
   display: block;
+  width: fit-content;
   position: absolute;
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
@@ -94,7 +95,6 @@
 @media screen and (max-width: 700px) {
   .signupSec {
     display: grid;
-    /* justify-items: center; */
     gap: 55px;
   }
   .signupPictureSec {
