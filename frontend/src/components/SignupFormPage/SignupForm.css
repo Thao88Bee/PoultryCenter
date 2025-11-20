@@ -99,5 +99,6 @@
   }
   .signupPictureSec {
     grid-row-start: 2;
+    justify-items: center;
   }
 }
