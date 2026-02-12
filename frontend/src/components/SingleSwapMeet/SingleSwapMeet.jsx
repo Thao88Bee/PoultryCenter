@@ -30,7 +30,7 @@ function SingleSwapMeet() {
           {new Date(swapMeet.date).toLocaleString("default", {
             month: "long",
           })}{" "}
-          {new Date(swapMeet.date).getDate()}
+          {new Date(swapMeet.date).getUTCDate()}
           {", "}
           {new Date(swapMeet.date).getFullYear()}
         </p>

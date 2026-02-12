@@ -11,7 +11,7 @@ const shows = [
   {
     ownerId: 1,
     name: "Coulee Region Poultry Club",
-    date: "2026-6-6",
+    date: "2026-06-06",
     description: `Online entries can be made for our show at: http://www.showcommander.app during the month of May. 
       (5/31/25 Entry Deadline)
       Always 1st Saturday in June

@@ -35,7 +35,7 @@ function SwapMeetPage() {
                       month: "long",
                     })}
                   </span>{" "}
-                  <span>{new Date(date).getDate()}</span>
+                  <span>{new Date(date).getUTCDate()}</span>
                   {", "}
                   <span>{new Date(date).getFullYear()}</span>
                 </p>
