@@ -19,7 +19,7 @@ const swapMeets = [
       Pete Dempsey
       dempseypete@yahoo.com
       920-728-0027`,
-    address: "03 N Jackson Ave",
+    address: "503 N Jackson Ave",
     city: "Jefferson",
     state: "Wisconsin",
     image: null,
